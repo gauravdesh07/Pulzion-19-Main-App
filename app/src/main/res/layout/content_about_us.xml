@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="@color/colorBackground">
+
+
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:nestedScrollingEnabled="true"
+        android:layout_marginTop="25dp"
+        android:orientation="vertical"
+        android:paddingLeft="10sp"
+        android:paddingRight="10sp"
+        android:background="@color/colorBackground"
+        tools:context=".AboutUs">
+
+
+
+        <ImageView
+            android:paddingTop="10sp"
+            android:id="@+id/eventImage"
+            android:src="@drawable/pasclogo"
+            android:layout_width="match_parent"
+            android:layout_height="220sp"
+            android:transitionName="transitionAnim"/>
+
+
+        <TextView
+            android:paddingTop="15sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/eventDetails"
+            android:textColor="@color/colorWhite"
+            android:textSize="17sp"/>
+
+        <TextView
+            android:paddingTop="10sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView1"
+            android:textColor="@color/colorWhite"
+            android:textSize="18sp"/>
+
+        <TextView
+            android:paddingTop="10sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView2"
+            android:textColor="@color/colorWhite"
+            android:textSize="16sp"
+            android:layout_marginBottom="10dp"/>
+    </LinearLayout>
+</ScrollView>
