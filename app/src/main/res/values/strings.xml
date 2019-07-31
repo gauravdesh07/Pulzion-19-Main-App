@@ -63,4 +63,7 @@
     <string name="register1">REGISTER</string>
     <string name="workshop">Workshops</string>
 
+    <string name="events">Events:</string>
+
+
 </resources>
