@@ -322,6 +322,7 @@ public class Receipts extends AppCompatActivity
                 final String[] mail1 = new String[1];
                 final String[] cost1 = new String[1];
                 String res= result.getContents();
+                final boolean[] flagEvent = {false};
                 db1=FirebaseFirestore.getInstance();
                 db1.collection("Combined").get()
                         .addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
@@ -337,6 +338,7 @@ public class Receipts extends AppCompatActivity
                                         String f_id1 =d1.getString("id");
                                         if(res.equals(f_id1))
                                         {
+                                            flagEvent[0] = true;
                                             //l.setVisibility(View.VISIBLE);
                                             name1[0] =d1.getString("participant1");
                                             contact1[0] = d1.getString("id");
@@ -363,6 +365,49 @@ public class Receipts extends AppCompatActivity
                                 }
                             }
                         });
+                if (!flagEvent[0]) {
+
+                    db1 = FirebaseFirestore.getInstance();
+                    db1.collection("Workshop").get()
+                            .addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
+                                @Override
+                                public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
+                                    if (!queryDocumentSnapshots.isEmpty()) {
+                                        int temp1 = 0;
+                                        List<DocumentSnapshot> list = queryDocumentSnapshots.getDocuments();
+                                        for (DocumentSnapshot d1 : list) {
+                                            String res = result.getContents();
+                                            String f_id1 = d1.getString("id");
+                                            if (res.equals(f_id1)) {
+                                                //                 flagEvent=true;
+                                                //l.setVisibility(View.VISIBLE);
+                                                name1[0] = d1.getString("participant1");
+                                                contact1[0] = d1.getString("id");
+                                                cost1[0] = String.valueOf(d1.get("cost"));
+                                                mail1[0] = d1.get("events").toString().replaceAll("_", " ");
+//                                            t1.setText(name1[0]);
+//                                            t2.setText(contact1[0]);
+//                                            t3.setText(mail1[0]);
+//                                            t4.setText(cost1[0]);
+//                                            t5.setText(d1.getString("id"));
+                                                model_classList.add(new model_class(name1[0], contact1[0], cost1[0], mail1[0]));
+
+                                                recyclerView.setAdapter(adapter);
+                                                adapter.notifyDataSetChanged();
+                                                temp1 = 1;
+                                                break;
+
+                                            }
+                                        }
+                                        if (temp1 == 0) {
+                                            Toast.makeText(Receipts.this, "Invalid QR Code", Toast.LENGTH_SHORT).show();
+                                        }
+                                    }
+                                }
+                            });
+
+
+                }
             }
         }
         else

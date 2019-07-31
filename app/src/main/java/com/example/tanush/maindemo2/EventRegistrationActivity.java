@@ -428,7 +428,7 @@ public class EventRegistrationActivity extends AppCompatActivity
                         eq = 1;
                         //amount+=100;
                         flagev = true;
-                        arrayList.add("Web_and_App_Development");
+                        arrayList.add("ElectroQuest");
                         event += "ElectroQuest\n";
                         fcost.setText(String.valueOf(amount));
 
