@@ -18,6 +18,7 @@ import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import com.bumptech.glide.Glide;
+import com.google.android.material.button.MaterialButton;
 import com.google.android.material.navigation.NavigationView;
 
 import java.io.Serializable;
@@ -33,6 +34,7 @@ EventDetails extends AppCompatActivity implements Serializable, NavigationView.O
     TextView event_name,event_description,quote,event_rules,team_distribution,fees,contact1,contact2;
     ImageView imageView;
     Bundle bundle;
+    MaterialButton RegisterButton;
 
 
 
@@ -47,6 +49,14 @@ EventDetails extends AppCompatActivity implements Serializable, NavigationView.O
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        RegisterButton = findViewById(R.id.RegisterButton);
+        RegisterButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(getApplicationContext(), EventRegistrationActivity.class);
+                startActivity(i);
+            }
+        });
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         NavigationView navigationView = findViewById(R.id.nav_view);
@@ -191,17 +201,6 @@ EventDetails extends AppCompatActivity implements Serializable, NavigationView.O
             }
         });
 
-    }
-
-
-    @Override
-    public void onBackPressed() {
-        DrawerLayout drawer = findViewById(R.id.drawer_layout);
-        if (drawer.isDrawerOpen(GravityCompat.START)) {
-            drawer.closeDrawer(GravityCompat.START);
-        } else {
-            super.onBackPressed();
-        }
     }
 
     @Override

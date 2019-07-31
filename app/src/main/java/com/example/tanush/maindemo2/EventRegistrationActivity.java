@@ -780,26 +780,7 @@ public class EventRegistrationActivity extends AppCompatActivity
     }
 
     boolean doubleBackToExitPressedOnce = false;
-    @Override
-    public void onBackPressed() {
-        if (doubleBackToExitPressedOnce) {
-            Intent a = new Intent(Intent.ACTION_MAIN);
-            a.addCategory(Intent.CATEGORY_HOME);
-            a.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-            startActivity(a);
-        }
 
-        this.doubleBackToExitPressedOnce = true;
-        Toast.makeText(this, "Press again to EXIT", Toast.LENGTH_SHORT).show();
-
-        new Handler().postDelayed(new Runnable() {
-
-            @Override
-            public void run() {
-                doubleBackToExitPressedOnce=false;
-            }
-        }, 2000);
-    }
 
 
     protected static String getSaltString() {
