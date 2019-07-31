@@ -4,34 +4,26 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
-
-import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
-
 import android.text.SpannableString;
 import android.text.style.UnderlineSpan;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.RequiresApi;
-import androidx.core.view.GravityCompat;
 import androidx.appcompat.app.ActionBarDrawerToggle;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
 
-import android.view.MenuItem;
-
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QuerySnapshot;
-
-import androidx.drawerlayout.widget.DrawerLayout;
-
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
-
-import android.view.Menu;
-import android.widget.TextView;
-import android.widget.Toast;
 
 import java.util.List;
 
@@ -200,18 +192,37 @@ public class AboutUs extends AppCompatActivity
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
         int id = item.getItemId();
-
-        if (id == R.id.nav_receipts) {
-            startActivity(new Intent(AboutUs.this,Receipts.class));
-        } else if (id == R.id.nav_events) {
-            startActivity(new Intent(AboutUs.this,Events.class));
-        } else if (id == R.id.nav_sponsors) {
-            startActivity(new Intent(AboutUs.this,Sponsors.class));
-        } else if (id == R.id.nav_aboutus) {
-            startActivity(new Intent(AboutUs.this,AboutUs.class));
-        } else if (id == R.id.nav_view) {
-            startActivity(new Intent(AboutUs.this,MainActivity.class));
+        switch (id) {
+            case R.id.Home:
+                Intent i = new Intent(AboutUs.this, MainActivity.class);
+                startActivity(i);
+                break;
+            case R.id.nav_register:
+                Intent h2 = new Intent(AboutUs.this, EventRegistrationActivity.class);
+                startActivity(h2);
+                break;
+            case R.id.nav_receipts:
+                Intent h = new Intent(AboutUs.this, Receipts.class);
+                startActivity(h);
+                break;
+            case R.id.nav_events:
+                Intent h1 = new Intent(AboutUs.this, Events.class);
+                startActivity(h1);
+                break;
+            case R.id.workshops:
+                Intent i1 = new Intent(AboutUs.this, Workshops.class);
+                startActivity(i1);
+                break;
+            case R.id.nav_sponsors:
+                Intent g = new Intent(AboutUs.this, Sponsors.class);
+                startActivity(g);
+                break;
+            case R.id.nav_aboutus:
+                Intent s = new Intent(AboutUs.this, AboutUs.class);
+                startActivity(s);
+                break;
         }
+
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);

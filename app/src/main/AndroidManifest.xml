@@ -13,9 +13,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".EventRegistrationActivity"></activity>
+        <activity android:name=".Workshops"></activity>
+        <activity android:name=".EventRegistrationActivity" />
         <activity android:name=".bug_report" />
-
         <activity android:name=".checksum" />
         <activity android:name=".EventDetails" />
         <activity
