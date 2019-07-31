@@ -1,24 +1,19 @@
 package com.example.tanush.maindemo2;
-import android.animation.ObjectAnimator;
+
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Toast;
-import android.widget.Toolbar;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import androidx.cardview.widget.CardView;
-import androidx.core.app.ActivityOptionsCompat;
-import androidx.core.view.ViewCompat;
 import androidx.fragment.app.Fragment;
 
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -66,24 +61,24 @@ public class TechEvents extends Fragment implements Serializable {
         idataquest=getActivity().findViewById(R.id.idataquest);
         ielectroquest=getActivity().findViewById(R.id.ielectroquest);
         iwebandappdev=getActivity().findViewById(R.id.iwebandappdev);
-        Animation animation= AnimationUtils.loadAnimation(getActivity(),R.anim.bounce);
-        ibugoff.startAnimation(animation);
-        icodebuddy.startAnimation(animation);
-        ijustcoding.startAnimation(animation);
-        irecodeit.startAnimation(animation);
-        idataquest.startAnimation(animation);
-        ielectroquest.startAnimation(animation);
-        iwebandappdev.startAnimation(animation);
+//        Animation animation= AnimationUtils.loadAnimation(getActivity(),R.anim.bounce);
+//        ibugoff.startAnimation(animation);
+//        icodebuddy.startAnimation(animation);
+//        ijustcoding.startAnimation(animation);
+//        irecodeit.startAnimation(animation);
+//        idataquest.startAnimation(animation);
+//        ielectroquest.startAnimation(animation);
+//        iwebandappdev.startAnimation(animation);
 
 
         db= FirebaseFirestore.getInstance();
         //Event_Details=db.collection("Event_Details");
-        cardViewBugoff=getActivity().findViewById(R.id.bugOff);
+        cardViewBugoff = getActivity().findViewById(R.id.bugoff);
         cardViewCodeBuddy=getActivity().findViewById(R.id.codeBuddy);
         cardJustCoding=getActivity().findViewById(R.id.just_coding);
         cardRecodeIt=getActivity().findViewById(R.id.recode_it);
         cardDataQuest=getActivity().findViewById(R.id.dataquest);
-        cardWebAppDev=getActivity().findViewById(R.id.web_app_dev);
+        cardWebAppDev = getActivity().findViewById(R.id.webandappdev);
         cardElectroQuest=getActivity().findViewById(R.id.electroquest);
 
         cardViewBugoff.setOnClickListener(new View.OnClickListener() {
@@ -259,11 +254,6 @@ public class TechEvents extends Fragment implements Serializable {
                                             intent.putExtra("EVENT_DETAILS",eventDetails);
 
                                             startActivity(intent);
-
-
-
-
-
                                             break;
                                         }
                                         else
@@ -314,11 +304,11 @@ public class TechEvents extends Fragment implements Serializable {
                                             con2=d1.getString("contact2");
 
 
-                                            EventSnapshot eventDetails=new EventSnapshot(event_name[0],quote[0],event_description[0],rule_description[0],team[0],fees[0],R.drawable.recodeit,con1,con2);
+                                            EventSnapshot eventDetails = new EventSnapshot(event_name[0], quote[0], event_description[0], rule_description[0], team[0], fees[0], R.drawable.recodeit, con1, con2);
                                             Intent intent=new Intent(getActivity(),EventDetails.class);
                                             intent.putExtra("EVENT_DETAILS",eventDetails);
                                             startActivity(intent);
-
+//hello
 
 
 

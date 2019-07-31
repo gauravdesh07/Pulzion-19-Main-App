@@ -1,7 +1,5 @@
 package com.example.tanush.maindemo2;
 import android.content.Intent;
-import android.content.res.Resources;
-import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -19,14 +17,12 @@ import androidx.annotation.RequiresApi;
 import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 
-import com.bumptech.glide.Glide;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.List;
-import java.util.Objects;
 
 public class NonTechEvents extends Fragment {
 
@@ -57,14 +53,14 @@ public class NonTechEvents extends Fragment {
         cardCerebro = getActivity().findViewById(R.id.cerebro);
         cardFandom = getActivity().findViewById(R.id.fandom);
         cardQuizToBid = getActivity().findViewById(R.id.quiztobid);
-        cardPhotoshopRoyale = getActivity().findViewById(R.id.photoshoproyale);
+        cardPhotoshopRoyale = getActivity().findViewById(R.id.psroyale);
         cardInsight = getActivity().findViewById(R.id.insight);
         idextrous = getActivity().findViewById(R.id.idextrous);
-        iInsight = getActivity().findViewById(R.id.iInsight);
+        iInsight = getActivity().findViewById(R.id.iinsight);
         icerebro = getActivity().findViewById(R.id.icerebro);
         ifandom = getActivity().findViewById(R.id.ifandom);
-        iquiz2bid = getActivity().findViewById(R.id.iquiz2bid);
-        iphotoshop = getActivity().findViewById(R.id.iphotoshoproyale);
+        iquiz2bid = getActivity().findViewById(R.id.iquiztobid);
+        iphotoshop = getActivity().findViewById(R.id.ipsroyale);
 
 
 //        Glide.with(this).load(getResources().getIdentifier("insight.png","drawable","getActivity()")).into(iInsight);
