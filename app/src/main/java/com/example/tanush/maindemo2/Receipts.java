@@ -54,8 +54,6 @@ public class Receipts extends AppCompatActivity
     final LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
 
 
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -74,6 +72,15 @@ public class Receipts extends AppCompatActivity
         Fabclose= AnimationUtils.loadAnimation(getApplicationContext(),R.anim.fab_close);
         Fabrclockwise= AnimationUtils.loadAnimation(getApplicationContext(),R.anim.rotate_clockwise);
         FabRanticlockwise= AnimationUtils.loadAnimation(getApplicationContext(),R.anim.rotate_anticlockwise);
+
+
+        recyclerView = findViewById(R.id.recycler_view);
+        //LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
+        linearLayoutManager.setOrientation(RecyclerView.VERTICAL);
+
+        recyclerView.setLayoutManager(linearLayoutManager);
+
+
 
         final Intent intent = getIntent();
         if (intent != null) {
@@ -97,20 +104,19 @@ public class Receipts extends AppCompatActivity
                                     String get_id = data;
                                     String f_id = d.getString("id");
 
-
-                                    if (get_id.equals(f_id)) {
+                                    if (data != null && data.equals(f_id)) {
 
                                         //l.setVisibility(View.VISIBLE);
-//                                        dialog.dismiss();
+                                        //                                        dialog.dismiss();
                                         name[0] = d.getString("participant1");
                                         contact[0] = f_id;
                                         cost[0] = String.valueOf(d.get("cost"));
                                         mail[0] = intent.getStringExtra("eventName");
-//                                                    t1.setText(name[0]);
-//                                                    t2.setText(contact[0]);
-//                                                    t3.setText(mail[0]);
-//                                                    t4.setText(cost[0]);
-//                                                    t5.setText(d.getString("id"));
+                                        //                                                    t1.setText(name[0]);
+                                        //                                                    t2.setText(contact[0]);
+                                        //                                                    t3.setText(mail[0]);
+                                        //                                                    t4.setText(cost[0]);
+                                        //                                                    t5.setText(d.getString("id"));
 
                                         model_classList.add(new model_class(name[0], contact[0], cost[0], mail[0]));
 
@@ -119,7 +125,6 @@ public class Receipts extends AppCompatActivity
                                         temp = 1;
                                         break;
                                     }
-
                                 }
                                 if (temp == 0) {
                                     Toast.makeText(Receipts.this, "Incorrect ID", Toast.LENGTH_SHORT).show();
@@ -131,13 +136,6 @@ public class Receipts extends AppCompatActivity
                     });
 
         }
-
-
-        recyclerView=findViewById(R.id.recycler_view);
-        //LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
-        linearLayoutManager.setOrientation(RecyclerView.VERTICAL);
-
-        recyclerView.setLayoutManager(linearLayoutManager);
 
 
 //        model_classList.add(new model_class("1","2","3","4"));
