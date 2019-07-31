@@ -757,7 +757,7 @@ public class EventRegistrationActivity extends AppCompatActivity
                 Intent intent1 = new Intent(EventRegistrationActivity.this, BugReport.class);
                 startActivity(intent1);
                 return true;
-            case R.id.share:
+            case R.id.share1:
                 Intent intent = new Intent(android.content.Intent.ACTION_SEND);
                 intent.setType("text/plain");
                 String link = "Here is the share content body";

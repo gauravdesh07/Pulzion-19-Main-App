@@ -366,7 +366,7 @@ public class Receipts extends AppCompatActivity
                                 }
                             }
                         });
-                if (!flagEvent[0]) {
+//                if (!flagEvent[0]) {
 
                     db1 = FirebaseFirestore.getInstance();
                     db1.collection("Workshop").get()
@@ -384,7 +384,7 @@ public class Receipts extends AppCompatActivity
                                                 //l.setVisibility(View.VISIBLE);
                                                 name1[0] = d1.getString("participant1");
                                                 contact1[0] = d1.getString("id");
-                                                cost1[0] = String.valueOf(d1.get("cost"));
+                                                cost1[0] = String.valueOf((int) d1.get("cost") - (int) d1.get("pending"));
                                                 mail1[0] = d1.get("events").toString().replaceAll("_", " ");
 //                                            t1.setText(name1[0]);
 //                                            t2.setText(contact1[0]);
@@ -408,7 +408,7 @@ public class Receipts extends AppCompatActivity
                             });
 
 
-                }
+//                }
             }
         }
         else
