@@ -38,4 +38,8 @@
         <item name="android:textStyle">bold</item>
     </style>
 
+    <style name="PulzionFont">
+        <item name="android:fontFamily">@font/equinox</item>
+    </style>
+
 </resources>
