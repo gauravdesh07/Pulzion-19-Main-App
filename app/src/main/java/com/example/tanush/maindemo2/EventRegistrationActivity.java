@@ -144,6 +144,7 @@ public class EventRegistrationActivity extends AppCompatActivity
 
         drawerLayout.addDrawerListener(toggle);
         toggle.syncState();
+        navigationView.setItemIconTintList(null);
         navigationView.setNavigationItemSelectedListener(this);
 
 
@@ -750,18 +751,23 @@ public class EventRegistrationActivity extends AppCompatActivity
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
+        switch (item.getItemId()) {
 
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
+            case R.id.bug_report:
+                Intent intent1 = new Intent(EventRegistrationActivity.this, BugReport.class);
+                startActivity(intent1);
+                return true;
+            case R.id.share:
+                Intent intent = new Intent(android.content.Intent.ACTION_SEND);
+                intent.setType("text/plain");
+                String link = "Here is the share content body";
+                intent.putExtra(android.content.Intent.EXTRA_TEXT, link);
+                startActivity(Intent.createChooser(intent, "Share via"));
+                return true;
+
+            default:
+                return super.onOptionsItemSelected(item);
         }
-
-        return super.onOptionsItemSelected(item);
-
     }
 
     @Override

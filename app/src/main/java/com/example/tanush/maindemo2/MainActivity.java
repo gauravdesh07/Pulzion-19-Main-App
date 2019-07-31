@@ -35,11 +35,12 @@ public class MainActivity extends AppCompatActivity
 
         toolbar.setTitleTextColor(getResources().getColor(android.R.color.white));
         drawer = findViewById(R.id.drawer_layout);
-        navigationView = findViewById(R.id.nav_view);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
         toggle.syncState();
+        navigationView = findViewById(R.id.nav_view);
+        navigationView.setItemIconTintList(null);
         navigationView.setNavigationItemSelectedListener(this);
 
         instabutton = findViewById(R.id.insta);
@@ -94,6 +95,14 @@ public class MainActivity extends AppCompatActivity
                     Intent intent1 = new Intent(MainActivity.this, BugReport.class);
                     startActivity(intent1);
                     return true;
+                case R.id.share:
+                    Intent intent = new Intent(android.content.Intent.ACTION_SEND);
+                    intent.setType("text/plain");
+                    String link = "Here is the share content body";
+                    intent.putExtra(android.content.Intent.EXTRA_TEXT, link);
+                    startActivity(Intent.createChooser(intent, "Share via"));
+                    return true;
+
                 default:
                     return super.onOptionsItemSelected(item);
             }

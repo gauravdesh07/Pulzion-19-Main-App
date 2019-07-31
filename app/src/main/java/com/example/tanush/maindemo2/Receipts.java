@@ -183,6 +183,7 @@ public class Receipts extends AppCompatActivity
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
         toggle.syncState();
+        navigationView.setItemIconTintList(null);
         navigationView.setNavigationItemSelectedListener(this);
 
 
@@ -442,6 +443,14 @@ public class Receipts extends AppCompatActivity
                 Intent intent1 = new Intent(Receipts.this, BugReport.class);
                 startActivity(intent1);
                 return true;
+            case R.id.share:
+                Intent intent = new Intent(android.content.Intent.ACTION_SEND);
+                intent.setType("text/plain");
+                String link = "Here is the share content body";
+                intent.putExtra(android.content.Intent.EXTRA_TEXT, link);
+                startActivity(Intent.createChooser(intent, "Share via"));
+                return true;
+
             default:
                 return super.onOptionsItemSelected(item);
         }
