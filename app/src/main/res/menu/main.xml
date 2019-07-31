@@ -8,7 +8,7 @@
         app:showAsAction="ifRoom"
         android:title="@string/bug_report"/>
     <item
-        android:id="@+id/share"
+        android:id="@+id/share1"
         android:icon="@drawable/ic_share"
         android:title="Share"
         app:showAsAction="ifRoom" />
