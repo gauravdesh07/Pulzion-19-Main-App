@@ -1,4 +1,5 @@
 package com.example.tanush.maindemo2;
+
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
@@ -6,7 +7,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Toast;
@@ -65,13 +65,13 @@ public class NonTechEvents extends Fragment {
 
 //        Glide.with(this).load(getResources().getIdentifier("insight.png","drawable","getActivity()")).into(iInsight);
 
-        Animation animation = AnimationUtils.loadAnimation(getActivity(), R.anim.bounce);
-        idextrous.startAnimation(animation);
-        iInsight.startAnimation(animation);
-        icerebro.startAnimation(animation);
-        ifandom.startAnimation(animation);
-        iquiz2bid.startAnimation(animation);
-        iphotoshop.startAnimation(animation);
+//        Animation animation = AnimationUtils.loadAnimation(getActivity(), R.anim.bounce);
+//        idextrous.startAnimation(animation);
+//        iInsight.startAnimation(animation);
+//        icerebro.startAnimation(animation);
+//        ifandom.startAnimation(animation);
+//        iquiz2bid.startAnimation(animation);
+//        iphotoshop.startAnimation(animation);
         idextrous.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
