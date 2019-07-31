@@ -104,7 +104,7 @@ public class checksum extends AppCompatActivity implements PaytmPaymentTransacti
             Service.startPaymentTransaction(checksum.this, true, true, new PaytmPaymentTransactionCallback() {
                 /*Call Backs*/
                 public void someUIErrorOccurred(String inErrorMessage) {
-                    Toast.makeText(checksum.this, "hahahahaha", Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(checksum.this, "hahahahaha", Toast.LENGTH_SHORT).show();
                     Intent i = new Intent(checksum.this,EventRegistrationActivity.class);
                     i.putExtra("TXN_RESPONSE", "TXN_FAILURE");
                     setResult(RESULT_OK,i);
@@ -136,7 +136,7 @@ public class checksum extends AppCompatActivity implements PaytmPaymentTransacti
 
                 public void onBackPressedCancelTransaction() {
                     Log.e("checksum ", " cancel call back respon  ");
-                    Toast.makeText(getApplicationContext(),"Toast Cancelled", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(),"Payment Cancelled", Toast.LENGTH_LONG).show();
 
                     Intent i = new Intent(getApplicationContext(), EventRegistrationActivity.class);
                     startActivity(i);
