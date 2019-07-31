@@ -1,32 +1,17 @@
 package com.example.tanush.maindemo2;
 
-import android.app.Dialog;
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
-
-import com.bumptech.glide.Glide;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
-
-import android.view.View;
-
-import androidx.core.view.GravityCompat;
-import androidx.appcompat.app.ActionBarDrawerToggle;
-
+import android.view.Menu;
 import android.view.MenuItem;
 
-import com.google.android.material.navigation.NavigationView;
-
-import androidx.drawerlayout.widget.DrawerLayout;
-
+import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
 
-import android.view.Menu;
-import android.view.Window;
-import android.widget.ImageView;
-import android.widget.TextView;
+import com.google.android.material.navigation.NavigationView;
 
 public class Sponsors extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -214,12 +199,9 @@ public class Sponsors extends AppCompatActivity
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
-            case R.id.action_settings:
-                Intent intent = new Intent(Sponsors.this, settings.class);
-                startActivity(intent);
-                return true;
+
             case R.id.bug_report:
-                Intent intent1 = new Intent(Sponsors.this, bug_report.class);
+                Intent intent1 = new Intent(Sponsors.this, BugReport.class);
                 startActivity(intent1);
                 return true;
             default:
@@ -232,30 +214,37 @@ public class Sponsors extends AppCompatActivity
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
         int id = item.getItemId();
-
-        switch(id)
-        {
-            case R.id.nav_events:
-                Intent h= new Intent(Sponsors.this,Events.class);
-                startActivity(h);
-                finish();
+        switch (id) {
+            case R.id.Home:
+                Intent i = new Intent(Sponsors.this, MainActivity.class);
+                startActivity(i);
+                break;
+            case R.id.nav_register:
+                Intent h2 = new Intent(Sponsors.this, EventRegistrationActivity.class);
+                startActivity(h2);
                 break;
             case R.id.nav_receipts:
-                Intent i= new Intent(Sponsors.this,Receipts.class);
-                startActivity(i);
-                finish();
+                Intent h = new Intent(Sponsors.this, Receipts.class);
+                startActivity(h);
+                break;
+            case R.id.nav_events:
+                Intent h1 = new Intent(Sponsors.this, Events.class);
+                startActivity(h1);
+                break;
+            case R.id.workshops:
+                Intent i1 = new Intent(Sponsors.this, Workshops.class);
+                startActivity(i1);
                 break;
             case R.id.nav_sponsors:
-                Intent g= new Intent(Sponsors.this,Sponsors.class);
+                Intent g = new Intent(Sponsors.this, Sponsors.class);
                 startActivity(g);
-                finish();
                 break;
             case R.id.nav_aboutus:
-                Intent s= new Intent(Sponsors.this,AboutUs.class);
+                Intent s = new Intent(Sponsors.this, AboutUs.class);
                 startActivity(s);
-                finish();
                 break;
         }
+
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);

@@ -85,12 +85,9 @@ public class Events extends AppCompatActivity
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
-            case R.id.action_settings:
-                Intent intent = new Intent(Events.this, settings.class);
-                startActivity(intent);
-                return true;
+
             case R.id.bug_report:
-                Intent intent1 = new Intent(Events.this, bug_report.class);
+                Intent intent1 = new Intent(Events.this, BugReport.class);
                 startActivity(intent1);
                 return true;
             default:
@@ -102,28 +99,37 @@ public class Events extends AppCompatActivity
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
         int id = item.getItemId();
+        switch (id) {
+            case R.id.Home:
+                Intent i = new Intent(Events.this, MainActivity.class);
+                startActivity(i);
+                break;
+            case R.id.nav_register:
+                Intent h2 = new Intent(Events.this, EventRegistrationActivity.class);
+                startActivity(h2);
+                break;
+            case R.id.nav_receipts:
+                Intent h = new Intent(Events.this, Receipts.class);
+                startActivity(h);
+                break;
+            case R.id.nav_events:
+                Intent h1 = new Intent(Events.this, Events.class);
+                startActivity(h1);
+                break;
+            case R.id.workshops:
+                Intent i1 = new Intent(Events.this, Workshops.class);
+                startActivity(i1);
+                break;
+            case R.id.nav_sponsors:
+                Intent g = new Intent(Events.this, Sponsors.class);
+                startActivity(g);
+                break;
+            case R.id.nav_aboutus:
+                Intent s = new Intent(Events.this, AboutUs.class);
+                startActivity(s);
+                break;
+        }
 
-        if (id == R.id.nav_receipts) {
-            startActivity(new Intent(Events.this,Receipts.class));
-            finish();
-        } else if (id == R.id.nav_events) {
-            startActivity(new Intent(Events.this,Events.class));
-            finish();
-        } else if (id == R.id.nav_sponsors) {
-            startActivity(new Intent(Events.this,Sponsors.class));
-            finish();
-        } else if (id == R.id.nav_aboutus) {
-            startActivity(new Intent(Events.this,AboutUs.class));
-            finish();
-        } else if (id == R.id.nav_view) {
-            startActivity(new Intent(Events.this,MainActivity.class));
-            finish();
-        }
-        else if(id==R.id.nav_register)
-        {
-            startActivity(new Intent(Events.this,EventRegistrationActivity.class));
-            finish();
-        }
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);

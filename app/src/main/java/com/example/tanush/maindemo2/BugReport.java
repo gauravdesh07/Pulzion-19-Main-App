@@ -16,7 +16,7 @@ import androidx.drawerlayout.widget.DrawerLayout;
 
 import com.google.android.material.navigation.NavigationView;
 
-public class bug_report extends AppCompatActivity
+public class BugReport extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener{
     CardView dev1, dev2;
     @Override
@@ -79,12 +79,9 @@ public class bug_report extends AppCompatActivity
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
-            case R.id.action_settings:
-                Intent intent = new Intent(bug_report.this, settings.class);
-                startActivity(intent);
-                return true;
+
             case R.id.bug_report:
-                Intent intent1 = new Intent(bug_report.this, bug_report.class);
+                Intent intent1 = new Intent(BugReport.this, BugReport.class);
                 startActivity(intent1);
                 return true;
             default:
@@ -97,30 +94,37 @@ public class bug_report extends AppCompatActivity
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
         int id = item.getItemId();
-
-        switch(id)
-        {
-            case R.id.nav_events:
-                Intent h= new Intent(bug_report.this,Events.class);
-                startActivity(h);
-                finish();
+        switch (id) {
+            case R.id.Home:
+                Intent i = new Intent(BugReport.this, MainActivity.class);
+                startActivity(i);
+                break;
+            case R.id.nav_register:
+                Intent h2 = new Intent(BugReport.this, EventRegistrationActivity.class);
+                startActivity(h2);
                 break;
             case R.id.nav_receipts:
-                Intent i= new Intent(bug_report.this,Receipts.class);
-                startActivity(i);
-                finish();
+                Intent h = new Intent(BugReport.this, Receipts.class);
+                startActivity(h);
+                break;
+            case R.id.nav_events:
+                Intent h1 = new Intent(BugReport.this, Events.class);
+                startActivity(h1);
+                break;
+            case R.id.workshops:
+                Intent i1 = new Intent(BugReport.this, Workshops.class);
+                startActivity(i1);
                 break;
             case R.id.nav_sponsors:
-                Intent g= new Intent(bug_report.this,Sponsors.class);
+                Intent g = new Intent(BugReport.this, Sponsors.class);
                 startActivity(g);
-                finish();
                 break;
             case R.id.nav_aboutus:
-                Intent s= new Intent(bug_report.this,AboutUs.class);
+                Intent s = new Intent(BugReport.this, AboutUs.class);
                 startActivity(s);
-                finish();
                 break;
         }
+
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);

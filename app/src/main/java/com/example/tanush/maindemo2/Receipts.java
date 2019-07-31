@@ -46,6 +46,8 @@ public class Receipts extends AppCompatActivity
     Toolbar toolbar=null;
     FloatingActionButton fab_plus,fab_QR,fab_manually;
     Animation Fabopen,Fabclose,Fabrclockwise,FabRanticlockwise;
+    TextView fab_QR_tV, fab_manually_tV;
+
     Boolean isOpen = false;
     ArrayList<model_class> model_classList = new ArrayList<>();
     final adapter adapter=new adapter(model_classList);
@@ -64,6 +66,9 @@ public class Receipts extends AppCompatActivity
         fab_plus=(FloatingActionButton)findViewById(R.id.fab_plus);
         fab_QR=(FloatingActionButton)findViewById(R.id.fab_QR);
         fab_manually=(FloatingActionButton)findViewById(R.id.fab_manual);
+
+        fab_QR_tV = (TextView) findViewById(R.id.fab_QR_tV);
+        fab_manually_tV = (TextView) findViewById(R.id.fab_manual_tV);
 
         Fabopen= AnimationUtils.loadAnimation(getApplicationContext(),R.anim.fab_open);
         Fabclose= AnimationUtils.loadAnimation(getApplicationContext(),R.anim.fab_close);
@@ -146,7 +151,10 @@ public class Receipts extends AppCompatActivity
             public void onClick(View view) {
                 if(isOpen){
                     fab_QR.startAnimation(Fabclose);
+                    fab_QR_tV.startAnimation(Fabclose);
+
                     fab_manually.startAnimation(Fabclose);
+                    fab_manually_tV.startAnimation(Fabclose);
                     fab_plus.startAnimation(FabRanticlockwise);
                     fab_QR.setClickable(false);
                     fab_manually.setClickable(false);
@@ -155,6 +163,8 @@ public class Receipts extends AppCompatActivity
                 else{
                     fab_QR.startAnimation(Fabopen);
                     fab_manually.startAnimation(Fabopen);
+                    fab_QR_tV.startAnimation(Fabopen);
+                    fab_manually_tV.startAnimation(Fabopen);
                     fab_plus.startAnimation(Fabrclockwise);
                     fab_QR.setClickable(true);
                     fab_manually.setClickable(true);
@@ -386,12 +396,9 @@ public class Receipts extends AppCompatActivity
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
-            case R.id.action_settings:
-                Intent intent = new Intent(Receipts.this, settings.class);
-                startActivity(intent);
-                return true;
+
             case R.id.bug_report:
-                Intent intent1 = new Intent(Receipts.this, bug_report.class);
+                Intent intent1 = new Intent(Receipts.this, BugReport.class);
                 startActivity(intent1);
                 return true;
             default:
@@ -404,22 +411,33 @@ public class Receipts extends AppCompatActivity
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
         int id = item.getItemId();
-        switch(id)
-        {
-            case R.id.nav_events:
-                Intent h= new Intent(Receipts.this,Events.class);
-                startActivity(h);
-                break;
-            case R.id.nav_receipts:
-                Intent i= new Intent(Receipts.this,Receipts.class);
+        switch (id) {
+            case R.id.Home:
+                Intent i = new Intent(Receipts.this, MainActivity.class);
                 startActivity(i);
                 break;
+            case R.id.nav_register:
+                Intent h2 = new Intent(Receipts.this, EventRegistrationActivity.class);
+                startActivity(h2);
+                break;
+            case R.id.nav_receipts:
+                Intent h = new Intent(Receipts.this, Receipts.class);
+                startActivity(h);
+                break;
+            case R.id.nav_events:
+                Intent h1 = new Intent(Receipts.this, Events.class);
+                startActivity(h1);
+                break;
+            case R.id.workshops:
+                Intent i1 = new Intent(Receipts.this, Workshops.class);
+                startActivity(i1);
+                break;
             case R.id.nav_sponsors:
-                Intent g= new Intent(Receipts.this,Sponsors.class);
+                Intent g = new Intent(Receipts.this, Sponsors.class);
                 startActivity(g);
                 break;
             case R.id.nav_aboutus:
-                Intent s= new Intent(Receipts.this,AboutUs.class);
+                Intent s = new Intent(Receipts.this, AboutUs.class);
                 startActivity(s);
                 break;
         }

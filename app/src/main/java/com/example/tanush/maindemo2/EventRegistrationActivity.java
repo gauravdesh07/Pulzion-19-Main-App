@@ -1287,23 +1287,42 @@ public class EventRegistrationActivity extends AppCompatActivity
     }
 
 
+    @SuppressWarnings("StatementWithEmptyBody")
     @Override
-    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+    public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
-
         int id = item.getItemId();
-
-        if (id == R.id.nav_receipts) {
-            startActivity(new Intent(EventRegistrationActivity.this,Receipts.class));
-        } else if (id == R.id.nav_events) {
-            startActivity(new Intent(EventRegistrationActivity.this,Events.class));
-        } else if (id == R.id.nav_sponsors) {
-            startActivity(new Intent(EventRegistrationActivity.this,Sponsors.class));
-        } else if (id == R.id.nav_aboutus) {
-            startActivity(new Intent(EventRegistrationActivity.this,EventRegistrationActivity.class));
-        } else if (id == R.id.nav_view) {
-            startActivity(new Intent(EventRegistrationActivity.this,MainActivity.class));
+        switch (id) {
+            case R.id.Home:
+                Intent i = new Intent(EventRegistrationActivity.this, MainActivity.class);
+                startActivity(i);
+                break;
+            case R.id.nav_register:
+                Intent h2 = new Intent(EventRegistrationActivity.this, EventRegistrationActivity.class);
+                startActivity(h2);
+                break;
+            case R.id.nav_receipts:
+                Intent h = new Intent(EventRegistrationActivity.this, Receipts.class);
+                startActivity(h);
+                break;
+            case R.id.nav_events:
+                Intent h1 = new Intent(EventRegistrationActivity.this, Events.class);
+                startActivity(h1);
+                break;
+            case R.id.workshops:
+                Intent i1 = new Intent(EventRegistrationActivity.this, Workshops.class);
+                startActivity(i1);
+                break;
+            case R.id.nav_sponsors:
+                Intent g = new Intent(EventRegistrationActivity.this, Sponsors.class);
+                startActivity(g);
+                break;
+            case R.id.nav_aboutus:
+                Intent s = new Intent(EventRegistrationActivity.this, AboutUs.class);
+                startActivity(s);
+                break;
         }
+
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);

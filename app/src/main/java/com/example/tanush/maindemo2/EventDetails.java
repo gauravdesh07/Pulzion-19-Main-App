@@ -1,11 +1,5 @@
 package com.example.tanush.maindemo2;
 
-import androidx.appcompat.app.ActionBarDrawerToggle;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
-import androidx.core.view.GravityCompat;
-import androidx.drawerlayout.widget.DrawerLayout;
-
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -16,6 +10,12 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import androidx.appcompat.app.ActionBarDrawerToggle;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
 
 import com.bumptech.glide.Glide;
 import com.google.android.material.navigation.NavigationView;
@@ -213,12 +213,9 @@ EventDetails extends AppCompatActivity implements Serializable, NavigationView.O
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
-            case R.id.action_settings:
-                Intent intent = new Intent(EventDetails.this, settings.class);
-                startActivity(intent);
-                return true;
+
             case R.id.bug_report:
-                Intent intent1 = new Intent(EventDetails.this, bug_report.class);
+                Intent intent1 = new Intent(EventDetails.this, BugReport.class);
                 startActivity(intent1);
                 return true;
             default:
@@ -231,30 +228,37 @@ EventDetails extends AppCompatActivity implements Serializable, NavigationView.O
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
         int id = item.getItemId();
-
-        switch(id)
-        {
-            case R.id.nav_events:
-                Intent h= new Intent(EventDetails.this,Events.class);
-                startActivity(h);
-                finish();
+        switch (id) {
+            case R.id.Home:
+                Intent i = new Intent(EventDetails.this, MainActivity.class);
+                startActivity(i);
+                break;
+            case R.id.nav_register:
+                Intent h2 = new Intent(EventDetails.this, EventRegistrationActivity.class);
+                startActivity(h2);
                 break;
             case R.id.nav_receipts:
-                Intent i= new Intent(EventDetails.this,Receipts.class);
-                startActivity(i);
-                finish();
+                Intent h = new Intent(EventDetails.this, Receipts.class);
+                startActivity(h);
+                break;
+            case R.id.nav_events:
+                Intent h1 = new Intent(EventDetails.this, Events.class);
+                startActivity(h1);
+                break;
+            case R.id.workshops:
+                Intent i1 = new Intent(EventDetails.this, Workshops.class);
+                startActivity(i1);
                 break;
             case R.id.nav_sponsors:
-                Intent g= new Intent(EventDetails.this,Sponsors.class);
+                Intent g = new Intent(EventDetails.this, Sponsors.class);
                 startActivity(g);
-                finish();
                 break;
             case R.id.nav_aboutus:
-                Intent s= new Intent(EventDetails.this,AboutUs.class);
+                Intent s = new Intent(EventDetails.this, AboutUs.class);
                 startActivity(s);
-                finish();
                 break;
         }
+
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
