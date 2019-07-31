@@ -165,6 +165,7 @@ public class checksum extends AppCompatActivity implements PaytmPaymentTransacti
         Toast.makeText(getApplicationContext(), "Payment Transaction response " + inResponse.toString(), Toast.LENGTH_LONG).show();
         Intent i = new Intent(checksum.this,EventRegistrationActivity.class);
         i.putExtra("TXN_RESPONSE", "TXN_SUCCESS");
+//        i.putExtra("UUID",orderId);
         setResult(RESULT_OK,i);
         finish();
 

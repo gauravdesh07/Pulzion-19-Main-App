@@ -303,7 +303,7 @@ public class EventRegistrationActivity extends AppCompatActivity
 
 
     @Override
-    protected void onActivityResult(int requestCode, int resultCode,Intent data) {
+    protected void onActivityResult(int requestCode, int resultCode, final Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == 1) {
             if (resultCode == RESULT_OK) {
@@ -313,6 +313,7 @@ public class EventRegistrationActivity extends AppCompatActivity
                 int s=data.getIntExtra("TXN_STATUS",1);
                 if(s==1)
                 {
+                    String eventString = "";
                     boolean flagev = false;
                     boolean flagws = false;
 
@@ -655,6 +656,7 @@ public class EventRegistrationActivity extends AppCompatActivity
                     }
 
 
+                    eventString += event;
                     RegistrationUser user = new RegistrationUser(participant1, participant2, email, contactno, college, rnd,arrayList,amount,yearkonsa);
                     collectionReference.add(user).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
                         @SuppressLint("ResourceAsColor")
@@ -674,13 +676,13 @@ public class EventRegistrationActivity extends AppCompatActivity
                     String workshops = "";
                     if (hack.isChecked()) {
                         workshops += "Ethical Hacking\n";
-                        amount += 1700;
+                        //amount += 1700;
                         arrayList1.add("Ethical Hacking");
                         flagws = true;
                     }
                     if (ai.isChecked()) {
                         workshops += "AI\n";
-                        amount += 1700;
+                        //amount += 1700;
                         arrayList1.add("AI");
                         flagws = true;
                     }
@@ -688,22 +690,27 @@ public class EventRegistrationActivity extends AppCompatActivity
                         WorkshopUser workshopUser = new WorkshopUser(participant1, participant2, email, contactno, college, rnd, arrayList1, amount, 0, rnd, yearkonsa);
                         crws.add(workshopUser);
                         Toast.makeText(this, "Registered Successfully", Toast.LENGTH_SHORT).show();
+
                     }
 
 
+                    final Intent intent = new Intent(EventRegistrationActivity.this, Receipts.class);
                     String message = "";
 
                     Resources res = getResources();
                     String dontreply = String.format(res.getString(R.string.donotreply));
                     String email1 = mail.getText().toString();
                     String subject = "Pulzion'19 : E-Receipt generated for your registration";
-                    if (flagev && flagws)
+                    if (flagev && flagws) {
                         message = "Dear " + par1.getText().toString() + "\n\nGreetings from PASC!! \n\nThank you for registering for Pulzion'19. \n" + "Your details have been recorded and corresponding payment received. \n\nPlease find below your Registration ID.\n" + "\nRegistration ID: " + rnd + "\nThe above ID is unique to you." + "\n\nYou have participated in the following Event/s:-\n\n" + event + "\n\nYou have Participated in the following Workshop/s:-\n\n" + workshops + "\n Total Amount Paid:  Rs. " + amount + "\n\nPlease feel free to reach out to us in case of doubts or difficulty.\nHimani Gwalani: 7387664241\nRitik Manghani: 8208641527" + "\n\nAll the Best!!\n\nRegards,\nPICT ACM Student Chapter\n\n\n\n" + dontreply;
-
-                    else if (flagev)
+                        intent.putExtra("eventName", eventString + "\nWorkshops: " + workshops.replaceAll("\n", ","));
+                    } else if (flagev) {
                         message = "Dear " + par1.getText().toString() + "\n\nGreetings from PASC!! \n\nThank you for registering for Pulzion'19. \n" + "Your details have been recorded and corresponding payment received. \n\nPlease find below your Registration ID.\n" + "\nRegistration ID: " + rnd + "\nThe above ID is unique to you." + "\n\nYou have participated in the following Event/s:-\n\n" + event + "\n Total Amount Paid:  Rs. " + amount + "\n\nPlease feel free to reach out to us in case of doubts or difficulty.\nHimani Gwalani: 7387664241\nRitik Manghani: 8208641527" + "\n\nAll the Best!!\n\nRegards,\nPICT ACM Student Chapter\n\n\n\n" + dontreply;
-                    else if (flagws)
+                        intent.putExtra("eventName", eventString);
+                    } else if (flagws) {
+                        intent.putExtra("eventName", workshops.replaceAll("\n", ","));
                         message = "Dear " + par1.getText().toString() + "\n\nGreetings from PASC!! \n\nThank you for registering for Pulzion'19. \n" + "Your details have been recorded and corresponding payment received. \n\nPlease find below your Registration ID.\n" + "\nRegistration ID: " + rnd + "\nThe above ID is unique to you." + "\n\nYou have Participated in the following Workshop/s:-\n\n" + workshops + "\n Total Amount Paid:  Rs. " + amount + "\n\nPlease feel free to reach out to us in case of doubts or difficulty.\nHimani Gwalani: 7387664241\nRitik Manghani: 8208641527" + "\n\nAll the Best!!\n\nRegards,\nPICT ACM Student Chapter\n\n\n\n" + dontreply;
+                    }
                     else
                         Toast.makeText(this, "Not Selected Anything", Toast.LENGTH_SHORT).show();
                     //Creating SendMail object
@@ -721,7 +728,9 @@ public class EventRegistrationActivity extends AppCompatActivity
                         @Override
                         public void run() {
                             dialog.dismiss();
-                            startActivity(new Intent(EventRegistrationActivity.this,EventRegistrationActivity.class));
+//                            intent.putExtra("UUID",data.getStringExtra("UUID"));
+                            intent.putExtra("my_receipt", rnd);
+                            startActivity(intent);
                         }
                     },2000);
                 }

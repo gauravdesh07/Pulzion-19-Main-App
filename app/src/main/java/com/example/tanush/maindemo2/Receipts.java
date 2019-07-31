@@ -70,6 +70,63 @@ public class Receipts extends AppCompatActivity
         Fabrclockwise= AnimationUtils.loadAnimation(getApplicationContext(),R.anim.rotate_clockwise);
         FabRanticlockwise= AnimationUtils.loadAnimation(getApplicationContext(),R.anim.rotate_anticlockwise);
 
+        final Intent intent = getIntent();
+        if (intent != null) {
+            final String data = intent.getStringExtra("my_receipt");
+            //Temp
+            final String[] name = new String[1];
+            final String[] contact = new String[1];
+            final String[] mail = new String[1];
+            final String[] cost = new String[1];
+            db = FirebaseFirestore.getInstance();
+            db.collection("Combined").get()
+                    .addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
+                        @Override
+                        public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
+                            if (!queryDocumentSnapshots.isEmpty()) {
+                                int temp = 0;
+                                List<DocumentSnapshot> list = queryDocumentSnapshots.getDocuments();
+                                for (DocumentSnapshot d : list) {
+
+                                    // User p=d.toObject(User.class);
+                                    String get_id = data;
+                                    String f_id = d.getString("id");
+
+
+                                    if (get_id.equals(f_id)) {
+
+                                        //l.setVisibility(View.VISIBLE);
+//                                        dialog.dismiss();
+                                        name[0] = d.getString("participant1");
+                                        contact[0] = f_id;
+                                        cost[0] = String.valueOf(d.get("cost"));
+                                        mail[0] = intent.getStringExtra("eventName");
+//                                                    t1.setText(name[0]);
+//                                                    t2.setText(contact[0]);
+//                                                    t3.setText(mail[0]);
+//                                                    t4.setText(cost[0]);
+//                                                    t5.setText(d.getString("id"));
+
+                                        model_classList.add(new model_class(name[0], contact[0], cost[0], mail[0]));
+
+                                        recyclerView.setAdapter(adapter);
+                                        adapter.notifyDataSetChanged();
+                                        temp = 1;
+                                        break;
+                                    }
+
+                                }
+                                if (temp == 0) {
+                                    Toast.makeText(Receipts.this, "Incorrect ID", Toast.LENGTH_SHORT).show();
+                                }
+
+                            }
+
+                        }
+                    });
+
+        }
+
 
         recyclerView=findViewById(R.id.recycler_view);
         //LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);

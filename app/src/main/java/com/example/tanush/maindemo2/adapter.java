@@ -25,7 +25,7 @@ public class adapter extends RecyclerView.Adapter<adapter.Viewholder> {
     @NonNull
     @Override
     public Viewholder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_layout,parent,false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_receipt, parent, false);
         return new Viewholder(view);
     }
 
@@ -47,10 +47,10 @@ public class adapter extends RecyclerView.Adapter<adapter.Viewholder> {
         public Viewholder(@NonNull View itemView) {
             super(itemView);
 
-            name=itemView.findViewById(R.id.name);
-            contact=itemView.findViewById(R.id.contact);
-            id=itemView.findViewById(R.id.id);
-            amt_paid=itemView.findViewById(R.id.amt_paid);
+            name = itemView.findViewById(R.id.textView6);
+            contact = itemView.findViewById(R.id.textView5);
+            id = itemView.findViewById(R.id.textView8);
+            amt_paid = itemView.findViewById(R.id.textView10);
         }
 
         private void setData(String name1,String contact1,String id1,String amt_paid1){
@@ -61,6 +61,5 @@ public class adapter extends RecyclerView.Adapter<adapter.Viewholder> {
         }
     }
 
-    ;
 
 }
