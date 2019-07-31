@@ -114,7 +114,7 @@
                         android:layout_width="60dp"
                         android:layout_height="100dp"
                         android:layout_weight="1"
-                        android:src="@drawable/recodeit" />
+                        android:src="@drawable/ev_recodeit" />
 
                     <TextView
                         android:id="@+id/textrecodeit"

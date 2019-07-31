@@ -42,6 +42,7 @@ import com.example.tanush.maindemo2.Users.Quiz2BidUser;
 import com.example.tanush.maindemo2.Users.ReCodeItUser;
 import com.example.tanush.maindemo2.Users.RegistrationUser;
 import com.example.tanush.maindemo2.Users.WebAppDevUser;
+import com.example.tanush.maindemo2.Users.WorkshopUser;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.navigation.NavigationView;
@@ -77,7 +78,7 @@ public class EventRegistrationActivity extends AppCompatActivity
     FirebaseAuth firebaseAuth;
 
     FirebaseUser firebaseUser;
-    ArrayList<String> arrayList=new ArrayList<>();
+    ArrayList<String> arrayList = new ArrayList<>(), arrayList1 = new ArrayList<>();
     TextInputLayout t1,t2,t3,t4,t5,t6;
     private FirebaseFirestore db;
     private DocumentReference documentReference;
@@ -99,13 +100,16 @@ public class EventRegistrationActivity extends AppCompatActivity
     private CollectionReference crFriends;
     private CollectionReference crMarvelvsDC;
     private CollectionReference crDC;
+    CheckBox hack, ai;
 
     final int REQUEST_CODE=1;
     private Button verify;
     Toolbar toolbar;
+    private CollectionReference crws;
 
     int fes = 0, ses = 0, tes = 0, bes = 0;
     private ProgressDialog progressDialog;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -125,6 +129,8 @@ public class EventRegistrationActivity extends AppCompatActivity
             actionBar.setHomeAsUpIndicator(R.drawable.ic_menu_black_24dp);
         }
 
+        hack = findViewById(R.id.hack);
+        ai = findViewById(R.id.ai);
 
         drawerLayout = findViewById(R.id.drawer_layout);
         NavigationView navigationView = findViewById(R.id.nav_view);
@@ -187,6 +193,7 @@ public class EventRegistrationActivity extends AppCompatActivity
         crFriends = db.collection("Friends");
         crMarvelvsDC = db.collection("Marvel");
         crDC = db.collection("DC");
+        crws = db.collection("Workshop");
 
 
         fe = findViewById(R.id.fe);
@@ -264,6 +271,7 @@ public class EventRegistrationActivity extends AppCompatActivity
                             Intent intent = new Intent(EventRegistrationActivity.this, checksum.class);
                             intent.putExtra("orderid", or);//uuid
                             intent.putExtra("custid", rnd);//rnd
+                            intent.putExtra("final_amount", amount);
                             dialog.dismiss();
                             startActivityForResult(intent,REQUEST_CODE);
 
@@ -305,6 +313,8 @@ public class EventRegistrationActivity extends AppCompatActivity
                 int s=data.getIntExtra("TXN_STATUS",1);
                 if(s==1)
                 {
+                    boolean flagev = false;
+                    boolean flagws = false;
 
                     final String participant1 = par1.getText().toString();
                     final String participant2 = par2.getText().toString();
@@ -329,6 +339,7 @@ public class EventRegistrationActivity extends AppCompatActivity
 
                     if (bugOffI.isChecked()) {
                         bugi = 1;
+                        flagev = true;
                         //  amount+=80;
                         arrayList.add("BugOff");
                         event += "BugOff(Individual)\n";
@@ -336,6 +347,7 @@ public class EventRegistrationActivity extends AppCompatActivity
                     }
                     if (bugOffT.isChecked()) {
                         bugt = 1;
+                        flagev = true;
                         //amount+=100;
                         arrayList.add("BugOff");
                         event += "BugOff(Team)\n";
@@ -343,6 +355,7 @@ public class EventRegistrationActivity extends AppCompatActivity
                     }
                     if (justCodingI.isChecked()) {
                         jci = 1;
+                        flagev = true;
                         //amount+=80;
                         arrayList.add("JustCoding");
                         event += "JustCoding(Individual)\n";
@@ -350,6 +363,7 @@ public class EventRegistrationActivity extends AppCompatActivity
                     }
                     if (justCodingT.isChecked()) {
                         jct = 1;
+                        flagev = true;
                         //amount+=100;
                         arrayList.add("JustCoding");
                         event += "JustCoding(Team)\n";
@@ -357,6 +371,7 @@ public class EventRegistrationActivity extends AppCompatActivity
                     }
                     if (reCodeItI.isChecked()) {
                         rii = 1;
+                        flagev = true;
                         //amount+=80;
                         arrayList.add("Recode_It");
                         event += "ReCode It!(Individual)\n";
@@ -366,7 +381,7 @@ public class EventRegistrationActivity extends AppCompatActivity
                     if (reCodeItT.isChecked()) {
                         rit = 1;
                         //amount+=100;
-
+                        flagev = true;
                         arrayList.add("Recode_It");
                         event += "ReCode It!(Team)\n";
                         fcost.setText(String.valueOf(amount));
@@ -374,6 +389,7 @@ public class EventRegistrationActivity extends AppCompatActivity
                     }
                     if (codeBuddy.isChecked()) {
                         cb = 1;
+                        flagev = true;
                         //amount+=100;
                         arrayList.add("Code_Buddy");
                         event += "CodeBuddy(Team)\n";
@@ -383,7 +399,7 @@ public class EventRegistrationActivity extends AppCompatActivity
                     if (dataQuest.isChecked()) {
                         dq = 1;
                         //amount+=150;
-
+                        flagev = true;
                         arrayList.add("DataQuest");
                         event += "DataQuest\n";
                         fcost.setText(String.valueOf(amount));
@@ -391,6 +407,7 @@ public class EventRegistrationActivity extends AppCompatActivity
                     }
                     if (webAppDev.isChecked()) {
                         wad = 1;
+                        flagev = true;
                         //amount+=100;
                         event+="Web & App Development\n";
                         arrayList.add("Web_and_App_Development");
@@ -400,7 +417,7 @@ public class EventRegistrationActivity extends AppCompatActivity
                     if (electroQuest.isChecked()) {
                         eq = 1;
                         //amount+=100;
-
+                        flagev = true;
                         arrayList.add("Web_and_App_Development");
                         event += "ElectroQuest\n";
                         fcost.setText(String.valueOf(amount));
@@ -408,6 +425,7 @@ public class EventRegistrationActivity extends AppCompatActivity
                     }
                     if (dextrous.isChecked()) {
                         dt = 1;
+                        flagev = true;
                         //amount+=100;
                         event += "Dextrous\n";
                         arrayList.add("Dextrous");
@@ -416,6 +434,7 @@ public class EventRegistrationActivity extends AppCompatActivity
                     }
                     if (photoShopRoyale.isChecked()) {
                         pr = 1;
+                        flagev = true;
                         //amount+=50;
                         event += "Photoshop Royale\n";
                         arrayList.add("Photoshop_Royale");
@@ -426,7 +445,7 @@ public class EventRegistrationActivity extends AppCompatActivity
                         q2b = 1;
                         //amount+=100;
                         event += "Quiz2Bid\n";
-
+                        flagev = true;
                         arrayList.add("Quiz2Bid");
                         fcost.setText(String.valueOf(amount));
 
@@ -434,7 +453,7 @@ public class EventRegistrationActivity extends AppCompatActivity
                     if (insight.isChecked()) {
                         inst = 1;
                         //amount+=50;
-
+                        flagev = true;
                         arrayList.add("Insight");
                         event += "Insight\n";
                         fcost.setText(String.valueOf(amount));
@@ -443,7 +462,7 @@ public class EventRegistrationActivity extends AppCompatActivity
                     if (cerebroI.isChecked()) {
                         cbi = 1;
                         //amount+=80;
-
+                        flagev = true;
                         arrayList.add("Cerebro");
                         event += "Cerebro(Individual)\n";
                         fcost.setText(String.valueOf(amount));
@@ -452,7 +471,7 @@ public class EventRegistrationActivity extends AppCompatActivity
                     if (cerebroT.isChecked()) {
                         cbt = 1;
                         //amount+=100;
-
+                        flagev = true;
                         arrayList.add("Cerebro");
                         event += "Cerebro(Team)\n";
                         fcost.setText(String.valueOf(amount));
@@ -461,7 +480,7 @@ public class EventRegistrationActivity extends AppCompatActivity
                     if (GOTI.isChecked()) {
                         goti = 1;
                         //amount+=80;
-
+                        flagev = true;
                         arrayList.add("GOT");
                         event += "GOT(Individual)\n";
                         fcost.setText(String.valueOf(amount));
@@ -470,7 +489,7 @@ public class EventRegistrationActivity extends AppCompatActivity
                     if (GOTT.isChecked()) {
                         gott = 1;
                         //amount+=100;
-
+                        flagev = true;
                         arrayList.add("GOT");
                         event += "GOT(Team)\n";
                         fcost.setText(String.valueOf(amount));
@@ -479,7 +498,7 @@ public class EventRegistrationActivity extends AppCompatActivity
                     if (friendsI.isChecked()) {
                         friendsi = 1;
                         //amount+=80;
-
+                        flagev = true;
                         arrayList.add("Friends");
                         event += "Friends(Individual)\n";
                         fcost.setText(String.valueOf(amount));
@@ -488,6 +507,7 @@ public class EventRegistrationActivity extends AppCompatActivity
                     if (friendsT.isChecked()) {
                         friendst = 1;
                         //amount+=100;
+                        flagev = true;
                         arrayList.add("Friends");
                         event += "Friends(Team)\n";
                         fcost.setText(String.valueOf(amount));
@@ -496,7 +516,7 @@ public class EventRegistrationActivity extends AppCompatActivity
                     if (HPI.isChecked()) {
                         hpi = 1;
                         //amount+=100;
-
+                        flagev = true;
                         arrayList.add("Harry_Potter");
                         event += "Harry Potter(Individual)\n";
                         fcost.setText(String.valueOf(amount));
@@ -504,6 +524,7 @@ public class EventRegistrationActivity extends AppCompatActivity
                     }
                     if (HPT.isChecked()) {
                         hpt = 1;
+                        flagev = true;
                         //amount+=100;
                         arrayList.add("Harry_Potter");
                         event += "Harry Potter(Team)\n";
@@ -513,6 +534,7 @@ public class EventRegistrationActivity extends AppCompatActivity
                     if (marvelI.isChecked()) {
                         marveli = 1;
                         //amount+=80;
+                        flagev = true;
                         arrayList.add("Marvel");
                         event += "Marvel(Individual)\n";
                         fcost.setText(String.valueOf(amount));
@@ -520,6 +542,7 @@ public class EventRegistrationActivity extends AppCompatActivity
                     if (marvelT.isChecked()) {
                         marvelt = 1;
                         //amount+=100;
+                        flagev = true;
                         arrayList.add("Marvel");
                         event+="Marvel(Team)\n";
                         fcost.setText(String.valueOf(amount));
@@ -527,6 +550,7 @@ public class EventRegistrationActivity extends AppCompatActivity
                     }
                     if (DCI.isChecked()) {
                         dci = 1;
+                        flagev = true;
                         //amount+=80;
                         arrayList.add("DC");
                         event += "DC(Individual)\n";
@@ -535,6 +559,7 @@ public class EventRegistrationActivity extends AppCompatActivity
                     }
                     if (DCT.isChecked()) {
                         dct = 1;
+                        flagev = true;
                         //amount+=100;
                         arrayList.add("DC");
                         event += "DC(Team)\n";
@@ -646,15 +671,41 @@ public class EventRegistrationActivity extends AppCompatActivity
                             Toast.makeText(EventRegistrationActivity.this, "Registration Failed", Toast.LENGTH_SHORT).show();
                         }
                     });
+                    String workshops = "";
+                    if (hack.isChecked()) {
+                        workshops += "Ethical Hacking\n";
+                        amount += 1700;
+                        arrayList1.add("Ethical Hacking");
+                        flagws = true;
+                    }
+                    if (ai.isChecked()) {
+                        workshops += "AI\n";
+                        amount += 1700;
+                        arrayList1.add("AI");
+                        flagws = true;
+                    }
+                    if (flagws) {
+                        WorkshopUser workshopUser = new WorkshopUser(participant1, participant2, email, contactno, college, rnd, arrayList1, amount, 0, rnd, yearkonsa);
+                        crws.add(workshopUser);
+                        Toast.makeText(this, "Registered Successfully", Toast.LENGTH_SHORT).show();
+                    }
 
 
+                    String message = "";
 
                     Resources res = getResources();
                     String dontreply = String.format(res.getString(R.string.donotreply));
                     String email1 = mail.getText().toString();
                     String subject = "Pulzion'19 : E-Receipt generated for your registration";
-                    String message = "Dear " + par1.getText().toString() + "\n\nGreetings from PASC!! \n\nThank you for registering for Pulzion'19. \n" + "Your details have been recorded and corresponding payment received. \n\nPlease find below your Registration ID.\n"+ "\nRegistration ID: " + rnd +"\nThe above ID is unique to you." +"\n\nYou have participated in the following Event/s:-\n\n"+event +"\n Total Amount Paid:  Rs. "+ amount+ "\n\nPlease feel free to reach out to us in case of doubts or difficulty.\nHimani Gwalani: 7387664241\nRitik Manghani: 8208641527" + "\n\nAll the Best!!\n\nRegards,\nPICT ACM Student Chapter\n\n\n\n" + dontreply;
+                    if (flagev && flagws)
+                        message = "Dear " + par1.getText().toString() + "\n\nGreetings from PASC!! \n\nThank you for registering for Pulzion'19. \n" + "Your details have been recorded and corresponding payment received. \n\nPlease find below your Registration ID.\n" + "\nRegistration ID: " + rnd + "\nThe above ID is unique to you." + "\n\nYou have participated in the following Event/s:-\n\n" + event + "\n\nYou have Participated in the following Workshop/s:-\n\n" + workshops + "\n Total Amount Paid:  Rs. " + amount + "\n\nPlease feel free to reach out to us in case of doubts or difficulty.\nHimani Gwalani: 7387664241\nRitik Manghani: 8208641527" + "\n\nAll the Best!!\n\nRegards,\nPICT ACM Student Chapter\n\n\n\n" + dontreply;
 
+                    else if (flagev)
+                        message = "Dear " + par1.getText().toString() + "\n\nGreetings from PASC!! \n\nThank you for registering for Pulzion'19. \n" + "Your details have been recorded and corresponding payment received. \n\nPlease find below your Registration ID.\n" + "\nRegistration ID: " + rnd + "\nThe above ID is unique to you." + "\n\nYou have participated in the following Event/s:-\n\n" + event + "\n Total Amount Paid:  Rs. " + amount + "\n\nPlease feel free to reach out to us in case of doubts or difficulty.\nHimani Gwalani: 7387664241\nRitik Manghani: 8208641527" + "\n\nAll the Best!!\n\nRegards,\nPICT ACM Student Chapter\n\n\n\n" + dontreply;
+                    else if (flagws)
+                        message = "Dear " + par1.getText().toString() + "\n\nGreetings from PASC!! \n\nThank you for registering for Pulzion'19. \n" + "Your details have been recorded and corresponding payment received. \n\nPlease find below your Registration ID.\n" + "\nRegistration ID: " + rnd + "\nThe above ID is unique to you." + "\n\nYou have Participated in the following Workshop/s:-\n\n" + workshops + "\n Total Amount Paid:  Rs. " + amount + "\n\nPlease feel free to reach out to us in case of doubts or difficulty.\nHimani Gwalani: 7387664241\nRitik Manghani: 8208641527" + "\n\nAll the Best!!\n\nRegards,\nPICT ACM Student Chapter\n\n\n\n" + dontreply;
+                    else
+                        Toast.makeText(this, "Not Selected Anything", Toast.LENGTH_SHORT).show();
                     //Creating SendMail object
                     SendMail sm = new SendMail(EventRegistrationActivity.this, email1, subject, message);
 
@@ -1162,6 +1213,7 @@ public class EventRegistrationActivity extends AppCompatActivity
 
 
     }
+
     boolean funpar1(){
         if (par1.getText().toString().isEmpty()) {
             //par1.setError("Mandatory");
@@ -1169,6 +1221,24 @@ public class EventRegistrationActivity extends AppCompatActivity
         } else
             return true;
 
+    }
+
+    public void funhack(View view) {
+        if (hack.isChecked())
+            amount += 1700;
+        else
+            amount -= 1700;
+
+        fcost.setText(String.valueOf(amount));
+    }
+
+    public void funai(View view) {
+        if (ai.isChecked())
+            amount += 1700;
+        else
+            amount -= 1700;
+
+        fcost.setText(String.valueOf(amount));
     }
     boolean funmail(){
         String s = mail.getText().toString();

@@ -2,9 +2,9 @@
 <vector xmlns:android="http://schemas.android.com/apk/res/android"
     android:width="710dp"
     android:height="463.2dp"
-    android:viewportHeight="463.2"
-    android:tint="@color/black"
-    android:viewportWidth="710">
+    android:tint="@color/white"
+    android:viewportWidth="710"
+    android:viewportHeight="463.2">
 
     <group>
         <path

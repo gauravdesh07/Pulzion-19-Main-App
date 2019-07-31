@@ -304,7 +304,7 @@ public class TechEvents extends Fragment implements Serializable {
                                             con2=d1.getString("contact2");
 
 
-                                            EventSnapshot eventDetails = new EventSnapshot(event_name[0], quote[0], event_description[0], rule_description[0], team[0], fees[0], R.drawable.recodeit, con1, con2);
+                                            EventSnapshot eventDetails = new EventSnapshot(event_name[0], quote[0], event_description[0], rule_description[0], team[0], fees[0], R.drawable.ev_recodeit, con1, con2);
                                             Intent intent=new Intent(getActivity(),EventDetails.class);
                                             intent.putExtra("EVENT_DETAILS",eventDetails);
                                             startActivity(intent);

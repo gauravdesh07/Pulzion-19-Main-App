@@ -21,7 +21,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 public class checksum extends AppCompatActivity implements PaytmPaymentTransactionCallback {
-    String custid="", orderId="", mid="";
+    String custid = "", orderId = "", mid = "", amount = "";
+    int temp = 0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,6 +32,7 @@ public class checksum extends AppCompatActivity implements PaytmPaymentTransacti
         Intent intent = getIntent();
         orderId = intent.getExtras().getString("orderid");
         custid = intent.getExtras().getString("custid");
+        temp = intent.getIntExtra("final_amount", 0);
         mid = "axESEi44386194598879"; /// your merchant id
         sendUserDetailTOServerdd dl = new sendUserDetailTOServerdd();
         dl.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
@@ -56,7 +58,7 @@ public class checksum extends AppCompatActivity implements PaytmPaymentTransacti
                     "MID="+mid+
                             "&ORDER_ID=" + orderId+
                             "&CUST_ID="+custid+
-                            "&CHANNEL_ID=WAP&TXN_AMOUNT=1&WEBSITE=PRODUCTION" +
+                            "&CHANNEL_ID=WAP&TXN_AMOUNT=" + temp + "&WEBSITE=PRODUCTION" +
                             "&CALLBACK_URL=" + verifyurl + "&INDUSTRY_TYPE_ID=Retail";
             JSONObject jsonObject = jsonParser.makeHttpRequest(url,"POST",param);
             // yaha per checksum ke saht order id or status receive hoga..
@@ -89,7 +91,7 @@ public class checksum extends AppCompatActivity implements PaytmPaymentTransacti
             paramMap.put("ORDER_ID", orderId);
             paramMap.put("CUST_ID", custid);
             paramMap.put("CHANNEL_ID", "WAP");
-            paramMap.put("TXN_AMOUNT", "1");
+            paramMap.put("TXN_AMOUNT", String.valueOf(temp));
             paramMap.put("WEBSITE", "PRODUCTION");
             paramMap.put("CALLBACK_URL", verifyurl);
             //paramMap.put( "EMAIL" , "abc@gmail.com");   // no need
