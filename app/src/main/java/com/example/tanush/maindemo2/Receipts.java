@@ -52,6 +52,7 @@ public class Receipts extends AppCompatActivity
     ArrayList<model_class> model_classList = new ArrayList<>();
     final adapter adapter=new adapter(model_classList);
     final LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
+    //test
 
 
     @Override
@@ -189,7 +190,7 @@ public class Receipts extends AppCompatActivity
         navigationView.setNavigationItemSelectedListener(this);
 
 
-       fab_QR.setOnClickListener(new View.OnClickListener() {
+        fab_QR.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 IntentIntegrator integrator = new IntentIntegrator(Receipts.this);
@@ -283,7 +284,7 @@ public class Receipts extends AppCompatActivity
     }
 
 
-//    void saveData()
+    //    void saveData()
 //    {
 //        SharedPreferences sharedPreferences=getSharedPreferences("shared preferences",MODE_PRIVATE);
 //        SharedPreferences.Editor editor=sharedPreferences.edit();
