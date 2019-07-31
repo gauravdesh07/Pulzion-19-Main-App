@@ -3,30 +3,19 @@ package com.example.tanush.maindemo2;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
-
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
-
-import android.view.View;
+import android.view.Menu;
+import android.view.MenuItem;
 
 import androidx.annotation.RequiresApi;
-import androidx.core.view.GravityCompat;
 import androidx.appcompat.app.ActionBarDrawerToggle;
-
-import android.view.MenuItem;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.viewpager.widget.ViewPager;
 
 import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.tabs.TabLayout;
-
-import androidx.drawerlayout.widget.DrawerLayout;
-
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
-import androidx.viewpager.widget.PagerAdapter;
-import androidx.viewpager.widget.ViewPager;
-
-import android.view.Menu;
-import android.widget.TableLayout;
 
 public class Events extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -128,6 +117,11 @@ public class Events extends AppCompatActivity
             finish();
         } else if (id == R.id.nav_view) {
             startActivity(new Intent(Events.this,MainActivity.class));
+            finish();
+        }
+        else if(id==R.id.nav_register)
+        {
+            startActivity(new Intent(Events.this,EventRegistrationActivity.class));
             finish();
         }
 

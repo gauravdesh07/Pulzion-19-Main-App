@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<ScrollView android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="@color/colorBackground">
+
+
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:background="@color/colorBackground"
+        tools:context=".EventDetails">
+
+
+
+            <ImageView
+
+                android:paddingTop="60sp"
+                android:id="@+id/eventImage"
+                android:layout_width="match_parent"
+                android:layout_height="220sp"
+                android:transitionName="transitionAnim"/>
+
+
+            <TextView
+                android:paddingTop="15sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/eventName"
+                android:textColor="@color/colorCyan2"
+                android:text="Event Name"
+                android:textSize="32sp"/>
+
+            <TextView
+                android:paddingTop="10sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/textView1"
+                android:textColor="@color/colorCyan2"
+                android:text="TextView"
+                android:textSize="18sp"/>
+
+            <TextView
+                android:paddingTop="10sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/eventDescription"
+                android:textColor="@color/colorWhite"
+                android:text="TextView"
+                android:textSize="16sp"/>
+
+            <TextView
+                android:paddingTop="10sp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Rules and Regulations"
+                android:textSize="26sp"
+                android:textColor="@color/colorCyan"/>
+            <TextView
+                android:paddingTop="10sp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="TextView3"
+                android:id="@+id/rules"
+                android:textSize="16sp"
+                android:textColor="@color/colorWhite"/>
+
+            <TextView
+                android:paddingTop="10sp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorCyan"
+                android:text="Team Distribution"
+                android:textSize="26sp"
+                />
+
+            <TextView
+                android:paddingTop="10sp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="TextView4"
+                android:textSize="16sp"
+                android:id="@+id/team_distribution"
+                android:textColor="@color/colorWhite"/>
+
+            <TextView
+                android:paddingTop="10sp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorCyan"
+                android:text="Fees"
+                android:textSize="26sp"
+                />
+
+            <TextView
+                android:paddingTop="10sp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="TextView5"
+                android:id="@+id/fees"
+                android:textSize="16sp"
+                android:textColor="@color/colorWhite"/>
+
+            <TextView
+                android:paddingTop="10sp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorCyan"
+                android:text="Contact"
+                android:textSize="26sp"
+                />
+
+            <TextView
+                android:clickable="true"
+                android:paddingTop="10sp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="TextView6"
+                android:id="@+id/contact1"
+                android:textSize="16sp"
+                android:textColor="@color/colorWhite"/>
+
+            <TextView
+                android:clickable="true"
+                android:paddingTop="10sp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="TextView6"
+                android:id="@+id/contact2"
+                android:textSize="16sp"
+                android:textColor="@color/colorWhite"/>
+
+        </LinearLayout>
+
+
+
+</ScrollView>

@@ -1,25 +1,31 @@
 package com.example.tanush.maindemo2;
 
+import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.text.SpannableString;
 import android.text.style.UnderlineSpan;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.google.android.material.navigation.NavigationView;
 
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Map;
 
 public class
-EventDetails extends AppCompatActivity implements Serializable {
+EventDetails extends AppCompatActivity implements Serializable, NavigationView.OnNavigationItemSelectedListener {
 
     Map<String,String> map;
     ArrayList<String>  arrayList;
@@ -28,6 +34,8 @@ EventDetails extends AppCompatActivity implements Serializable {
     ImageView imageView;
     Bundle bundle;
 
+
+
     StringBuilder final1=new StringBuilder(" "),final2=new StringBuilder(" ");
     StringBuilder temp1=new StringBuilder(" "),temp2=new StringBuilder(" ");
     Toolbar toolbar=null;
@@ -35,6 +43,20 @@ EventDetails extends AppCompatActivity implements Serializable {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_event_details);
+
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+
+
+        DrawerLayout drawer = findViewById(R.id.drawer_layout);
+        NavigationView navigationView = findViewById(R.id.nav_view);
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
+                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+        drawer.addDrawerListener(toggle);
+        toggle.syncState();
+        navigationView.setNavigationItemSelectedListener(this);
+
+
 
 
         EventSnapshot temp= (EventSnapshot) getIntent().getSerializableExtra("EVENT_DETAILS");
@@ -168,5 +190,74 @@ EventDetails extends AppCompatActivity implements Serializable {
             }
         });
 
+    }
+
+
+    @Override
+    public void onBackPressed() {
+        DrawerLayout drawer = findViewById(R.id.drawer_layout);
+        if (drawer.isDrawerOpen(GravityCompat.START)) {
+            drawer.closeDrawer(GravityCompat.START);
+        } else {
+            super.onBackPressed();
+        }
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.main, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.action_settings:
+                Intent intent = new Intent(EventDetails.this, settings.class);
+                startActivity(intent);
+                return true;
+            case R.id.bug_report:
+                Intent intent1 = new Intent(EventDetails.this, bug_report.class);
+                startActivity(intent1);
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
+
+    @SuppressWarnings("StatementWithEmptyBody")
+    @Override
+    public boolean onNavigationItemSelected(MenuItem item) {
+        // Handle navigation view item clicks here.
+        int id = item.getItemId();
+
+        switch(id)
+        {
+            case R.id.nav_events:
+                Intent h= new Intent(EventDetails.this,Events.class);
+                startActivity(h);
+                finish();
+                break;
+            case R.id.nav_receipts:
+                Intent i= new Intent(EventDetails.this,Receipts.class);
+                startActivity(i);
+                finish();
+                break;
+            case R.id.nav_sponsors:
+                Intent g= new Intent(EventDetails.this,Sponsors.class);
+                startActivity(g);
+                finish();
+                break;
+            case R.id.nav_aboutus:
+                Intent s= new Intent(EventDetails.this,AboutUs.class);
+                startActivity(s);
+                finish();
+                break;
+        }
+
+        DrawerLayout drawer = findViewById(R.id.drawer_layout);
+        drawer.closeDrawer(GravityCompat.START);
+        return true;
     }
 }

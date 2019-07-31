@@ -2,35 +2,9 @@ package com.example.tanush.maindemo2;
 
 import android.content.Intent;
 import android.os.Bundle;
-
-import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
-
-import android.view.View;
-
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AlertDialog;
-import androidx.core.view.GravityCompat;
-import androidx.appcompat.app.ActionBarDrawerToggle;
-
-import android.view.MenuItem;
-
-import com.google.android.material.navigation.NavigationView;
-import com.google.firebase.firestore.DocumentSnapshot;
-import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.QuerySnapshot;
-import com.google.zxing.integration.android.IntentIntegrator;
-import com.google.zxing.integration.android.IntentResult;
-
-import androidx.drawerlayout.widget.DrawerLayout;
-
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.view.Menu;
+import android.view.MenuItem;
+import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
@@ -38,6 +12,25 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.ActionBarDrawerToggle;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.navigation.NavigationView;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QuerySnapshot;
+import com.google.zxing.integration.android.IntentIntegrator;
+import com.google.zxing.integration.android.IntentResult;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -47,13 +40,14 @@ public class Receipts extends AppCompatActivity
 
     private RecyclerView recyclerView;
     FirebaseFirestore db,db1;
+
     //TextView t1,t2,t3,t4,t5;
     LinearLayout l;
     Toolbar toolbar=null;
     FloatingActionButton fab_plus,fab_QR,fab_manually;
     Animation Fabopen,Fabclose,Fabrclockwise,FabRanticlockwise;
     Boolean isOpen = false;
-    final ArrayList<model_class> model_classList = new ArrayList<>();
+    ArrayList<model_class> model_classList = new ArrayList<>();
     final adapter adapter=new adapter(model_classList);
     final LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
 
@@ -223,6 +217,26 @@ public class Receipts extends AppCompatActivity
         });
     }
 
+
+//    void saveData()
+//    {
+//        SharedPreferences sharedPreferences=getSharedPreferences("shared preferences",MODE_PRIVATE);
+//        SharedPreferences.Editor editor=sharedPreferences.edit();
+//        Gson gson=new Gson();
+//        String json=gson.toJson(model_classList);
+//        editor.putString("task list",json);
+//        editor.apply();
+//    }
+//    void loadData()
+//    {
+//        SharedPreferences sharedPreferences=getSharedPreferences("shared preferences",MODE_PRIVATE);
+//        Gson gson=new Gson();
+//        String json=sharedPreferences.getString("task list",null);
+//        Type type=new TypeToken<ArrayList<model_class>>(){}.getType();
+//        model_classList=gson.fromJson(json,type);
+//        if(model_classList==null)
+//            model_classList=new ArrayList<>();
+//    }
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         final IntentResult result =IntentIntegrator.parseActivityResult(requestCode,resultCode,data);
@@ -260,7 +274,7 @@ public class Receipts extends AppCompatActivity
                                         String f_id1 =d1.getString("id");
                                         if(res.equals(f_id1))
                                         {
-                                            l.setVisibility(View.VISIBLE);
+                                            //l.setVisibility(View.VISIBLE);
                                             name1[0] =d1.getString("participant1");
                                             contact1[0] =d1.getString("contact");
                                             cost1[0] =String.valueOf(d1.get("cost"));

@@ -13,8 +13,10 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".bug_report"></activity>
-        <activity android:name=".settings" />
+        <activity android:name=".EventRegistrationActivity"></activity>
+        <activity android:name=".bug_report" />
+
+        <activity android:name=".checksum" />
         <activity android:name=".EventDetails" />
         <activity
             android:name=".AboutUs"
