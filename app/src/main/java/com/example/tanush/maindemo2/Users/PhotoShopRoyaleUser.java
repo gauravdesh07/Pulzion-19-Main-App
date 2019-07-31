@@ -1,6 +1,6 @@
-package com.example.tanush.maindemo2;
+package com.example.tanush.maindemo2.Users;
 
-public class DataQuestUser {
+public class PhotoShopRoyaleUser {
     String participant1;
     String participant2;
     String mail;
@@ -21,7 +21,7 @@ public class DataQuestUser {
     public void setSlot(String slot) {
         this.slot = slot;
     }
-    public DataQuestUser(String participant1, String participant2, String mail, String contact, String collegeName,String id,String slot,int cost,int score) {
+    public PhotoShopRoyaleUser(String participant1, String participant2, String mail, String contact, String collegeName,String id,String slot,int cost,int score) {
         this.participant1 = participant1;
         this.participant2 = participant2;
         this.mail = mail;

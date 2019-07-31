@@ -1,6 +1,5 @@
-package com.example.tanush.maindemo2;
-
-public class FriendsUser {
+package com.example.tanush.maindemo2.Users;
+public class HarryPotterUser {
     String participant1;
     String participant2;
     String mail;
@@ -21,7 +20,7 @@ public class FriendsUser {
     public void setSlot(String slot) {
         this.slot = slot;
     }
-    public FriendsUser(String participant1, String participant2, String mail, String contact, String collegeName,String id,String slot,int cost,int score) {
+    public HarryPotterUser(String participant1, String participant2, String mail, String contact, String collegeName,String id,String slot,int cost,int score) {
         this.participant1 = participant1;
         this.participant2 = participant2;
         this.mail = mail;

@@ -1,5 +1,5 @@
-package com.example.tanush.maindemo2;
-public class ElectroQuestUser {
+package com.example.tanush.maindemo2.Users;
+public class DCUser {
     String participant1;
     String participant2;
     String mail;
@@ -20,7 +20,7 @@ public class ElectroQuestUser {
     public void setSlot(String slot) {
         this.slot = slot;
     }
-    public ElectroQuestUser(String participant1, String participant2, String mail, String contact, String collegeName,String id,String slot,int cost,int score) {
+    public DCUser(String participant1, String participant2, String mail, String contact, String collegeName,String id,String slot,int cost,int score) {
         this.participant1 = participant1;
         this.participant2 = participant2;
         this.mail = mail;

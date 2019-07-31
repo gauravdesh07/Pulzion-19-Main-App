@@ -1,59 +1,41 @@
-package com.example.tanush.maindemo2;
-
-import java.util.ArrayList;
-public class RegistrationUser {
+package com.example.tanush.maindemo2.Users;
+public class Quiz2BidUser {
     String participant1;
     String participant2;
-    String volunteer;
     String mail;
-    String contact;
     String collegeName;
-    String slot;
     String id;
-    ArrayList<String> events;
+    String slot;
     int cost;
-    String year;
-    public String getSlot() {
-        return slot;
-    }
-    public ArrayList<String> getEvents() {
-        return events;
-    }
-    public void setEvents(ArrayList events) {
-        this.events = events;
-    }
-    public int getCost() {
-        return cost;
-    }
-    public void setCost(int cost) {
-        this.cost = cost;
-    }
-    public void setSlot(String slot) {
-        this.slot = slot;
-    }
+    int score;
     public String getId() {
         return id;
     }
     public void setId(String id) {
         this.id = id;
     }
+    public String getSlot() {
+        return slot;
+    }
+    public void setSlot(String slot) {
+        this.slot = slot;
+    }
+    public Quiz2BidUser(String participant1, String participant2, String mail, String contact, String collegeName,String id,String slot,int cost,int score) {
+        this.participant1 = participant1;
+        this.participant2 = participant2;
+        this.mail = mail;
+        this.contact = contact;
+        this.collegeName=collegeName;
+        this.id=id;
+        this.slot=slot;
+        this.cost=cost;
+        this.score=score;
+    }
     public String getCollegeName() {
         return collegeName;
     }
     public void setCollegeName(String collegeName) {
         this.collegeName = collegeName;
-    }
-    public RegistrationUser(String participant1, String participant2, String mail, String contact, String collegeName,String id, ArrayList<String> events,int cost,String year) {
-        this.year=year;
-        this.participant1 = participant1;
-        this.participant2 = participant2;
-//        this.volunteer = volunteer;
-        this.mail = mail;
-        this.contact = contact;
-        this.collegeName=collegeName;
-        this.id=id;
-        this.events=events;
-        this.cost=cost;
     }
     public String getParticipant1() {
         return participant1;
@@ -79,4 +61,5 @@ public class RegistrationUser {
     public void setContact(String contact) {
         this.contact = contact;
     }
+    String contact;
 }

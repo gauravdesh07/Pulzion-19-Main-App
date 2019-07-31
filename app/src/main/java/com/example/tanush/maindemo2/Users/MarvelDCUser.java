@@ -1,6 +1,6 @@
-package com.example.tanush.maindemo2;
+package com.example.tanush.maindemo2.Users;
 
-public class GOTUser {
+public class MarvelDCUser {
     String participant1;
     String participant2;
     String mail;
@@ -21,7 +21,7 @@ public class GOTUser {
     public void setSlot(String slot) {
         this.slot = slot;
     }
-    public GOTUser(String participant1, String participant2, String mail, String contact, String collegeName,String id,String slot,int cost,int score) {
+    public MarvelDCUser(String participant1, String participant2, String mail, String contact, String collegeName,String id,String slot,int cost,int score) {
         this.participant1 = participant1;
         this.participant2 = participant2;
         this.mail = mail;
