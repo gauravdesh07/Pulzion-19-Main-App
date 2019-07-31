@@ -66,6 +66,7 @@ public class EventRegistrationActivity extends AppCompatActivity
     boolean a = false, b = false, c = false, d = false, e = false;
     TextInputEditText par1, par2,  mail, contact, collegeName;
     TextView vol;
+    Button cancel;
     int amount = 0;
     String am,am1;
     CheckBox fe, se, te, be;
@@ -257,6 +258,7 @@ public class EventRegistrationActivity extends AppCompatActivity
 
                     mAlertDialog.setView(mView);
                     Button verify = mView.findViewById(R.id.verify);
+                    Button cancel = mView.findViewById(R.id.cancel);
                     final TextView textView = mView.findViewById(R.id.textView);
                     String temp = String.valueOf(amount);
                     textView.setText("To pay:- " + amount);
@@ -294,7 +296,14 @@ public class EventRegistrationActivity extends AppCompatActivity
 //                                startActivity(intent);
 
                         }
+                        //koko d
 
+                    });
+                    cancel.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            dialog.dismiss();
+                        }
                     });
                 }
             }

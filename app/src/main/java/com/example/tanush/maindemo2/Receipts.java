@@ -127,10 +127,6 @@ public class Receipts extends AppCompatActivity
                                         break;
                                     }
                                 }
-                                if (temp == 0) {
-                                    Toast.makeText(Receipts.this, "Incorrect ID", Toast.LENGTH_SHORT).show();
-                                }
-
                             }
 
                         }
@@ -249,9 +245,10 @@ public class Receipts extends AppCompatActivity
                                                     //l.setVisibility(View.VISIBLE);
                                                     dialog.dismiss();
                                                     name[0] =d.getString("participant1");
-                                                    contact[0] =d.getString("contact");
+                                                    contact[0] = d.getString("id");
                                                     cost[0] =String.valueOf(d.get("cost"));
-                                                    mail[0] =d.getString("mail");
+//                                                    mail[0] =d.getString("mail");
+                                                    mail[0] = d.get("events").toString().replaceAll("_", " ");
 //                                                    t1.setText(name[0]);
 //                                                    t2.setText(contact[0]);
 //                                                    t3.setText(mail[0]);
@@ -342,9 +339,9 @@ public class Receipts extends AppCompatActivity
                                         {
                                             //l.setVisibility(View.VISIBLE);
                                             name1[0] =d1.getString("participant1");
-                                            contact1[0] =d1.getString("contact");
+                                            contact1[0] = d1.getString("id");
                                             cost1[0] =String.valueOf(d1.get("cost"));
-                                            mail1[0] =d1.getString("mail");
+                                            mail1[0] = d1.get("events").toString().replaceAll("_", " ");
 //                                            t1.setText(name1[0]);
 //                                            t2.setText(contact1[0]);
 //                                            t3.setText(mail1[0]);
