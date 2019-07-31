@@ -31,7 +31,6 @@ public class PhotoShopRoyaleUser {
         this.slot=slot;
         this.cost=cost;
         this.score=score;
-
     }
     public String getCollegeName() {
         return collegeName;
