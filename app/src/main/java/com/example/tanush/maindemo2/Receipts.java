@@ -1,6 +1,7 @@
 package com.example.tanush.maindemo2;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -29,9 +30,12 @@ import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QuerySnapshot;
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 import com.google.zxing.integration.android.IntentIntegrator;
 import com.google.zxing.integration.android.IntentResult;
 
+import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -40,6 +44,7 @@ public class Receipts extends AppCompatActivity
 
     private RecyclerView recyclerView;
     FirebaseFirestore db,db1;
+    ArrayList model_classList;
 
     //TextView t1,t2,t3,t4,t5;
     LinearLayout l;
@@ -49,9 +54,9 @@ public class Receipts extends AppCompatActivity
     TextView fab_QR_tV, fab_manually_tV;
 
     Boolean isOpen = false;
-    ArrayList<model_class> model_classList = new ArrayList<>();
-    final adapter adapter=new adapter(model_classList);
-    final LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
+    adapter adapter = new adapter(model_classList);
+    LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
+
     //test
 
 
@@ -76,9 +81,12 @@ public class Receipts extends AppCompatActivity
 
 
         recyclerView = findViewById(R.id.recycler_view);
+
+
+        loadData();
+        buildRecyclerView();
         //LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
         linearLayoutManager.setOrientation(RecyclerView.VERTICAL);
-
         recyclerView.setLayoutManager(linearLayoutManager);
 
 
@@ -124,6 +132,7 @@ public class Receipts extends AppCompatActivity
                                         recyclerView.setAdapter(adapter);
                                         adapter.notifyDataSetChanged();
                                         temp = 1;
+                                        saveData();
                                         break;
                                     }
                                 }
@@ -261,8 +270,11 @@ public class Receipts extends AppCompatActivity
                                                     recyclerView.setAdapter(adapter);
                                                     adapter.notifyDataSetChanged();
                                                     temp=1;
+                                                    saveData();
                                                     break;
+
                                                 }
+
 
                                             }
                                             if(temp==0)
@@ -279,6 +291,39 @@ public class Receipts extends AppCompatActivity
                 });
             }
         });
+    }
+
+    private void saveData() {
+        SharedPreferences sharedPreferences = getSharedPreferences("shared_preferences", MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        Gson gson = new Gson();
+        String json = gson.toJson(model_classList);
+        editor.putString("task list", json);
+        editor.apply();
+    }
+
+    void loadData() {
+        SharedPreferences sharedPreferences = getSharedPreferences("shared_preferences", MODE_PRIVATE);
+        Gson gson = new Gson();
+        String json = sharedPreferences.getString("task list", null);
+        Type type = new TypeToken<ArrayList<model_class>>() {
+        }.getType();
+        model_classList = gson.fromJson(json, type);
+
+        if (model_classList == null) {
+            model_classList = new ArrayList<>();
+        }
+
+    }
+
+    private void buildRecyclerView() {
+        recyclerView = findViewById(R.id.recycler_view);
+        recyclerView.setHasFixedSize(false);
+        linearLayoutManager = new LinearLayoutManager(this);
+        adapter = new adapter(model_classList);
+
+        recyclerView.setLayoutManager(linearLayoutManager);
+        recyclerView.setAdapter(adapter);
     }
 
 
@@ -355,6 +400,7 @@ public class Receipts extends AppCompatActivity
                                             recyclerView.setAdapter(adapter);
                                             adapter.notifyDataSetChanged();
                                             temp1=1;
+                                            saveData();
                                             break;
 
                                         }
@@ -396,6 +442,7 @@ public class Receipts extends AppCompatActivity
                                                 recyclerView.setAdapter(adapter);
                                                 adapter.notifyDataSetChanged();
                                                 temp1 = 1;
+                                                saveData();
                                                 break;
 
                                             }

@@ -41,7 +41,7 @@ public class checksum extends AppCompatActivity implements PaytmPaymentTransacti
     public class sendUserDetailTOServerdd extends AsyncTask<ArrayList<String>, Void, String> {
         private ProgressDialog dialog = new ProgressDialog(checksum.this);
         //private String orderId , mid, custid, amt;
-        String url ="https://pascpayment.000webhostapp.com/generateChecksum.php";
+        String url = "http://pict.acm.org/09ph23pl/generateChecksum.php";
         String verifyurl = "https://securegw.paytm.in/theia/paytmCallback?ORDER_ID=" + orderId;
 
         //String varifyurl = "https://pascpayment.000webhostapp.com/verifyChecksum.php";

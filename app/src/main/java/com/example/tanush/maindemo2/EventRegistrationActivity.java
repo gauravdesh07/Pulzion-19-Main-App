@@ -274,7 +274,7 @@ public class EventRegistrationActivity extends AppCompatActivity
                             Intent intent = new Intent(EventRegistrationActivity.this, checksum.class);
                             intent.putExtra("orderid", or);//uuid
                             intent.putExtra("custid", rnd);//rnd
-                            intent.putExtra("final_amount", amount);
+                            intent.putExtra("final_amount", 1);//amount change here
                             dialog.dismiss();
                             startActivityForResult(intent,REQUEST_CODE);
 

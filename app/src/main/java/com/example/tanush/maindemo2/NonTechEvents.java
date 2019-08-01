@@ -49,7 +49,7 @@ public class NonTechEvents extends Fragment {
         super.onStart();
         linearLayout=getActivity().findViewById(R.id.layout);
         db = FirebaseFirestore.getInstance();
-
+        cardDextrous = getActivity().findViewById(R.id.dextrous);
         cardCerebro = getActivity().findViewById(R.id.cerebro);
         cardFandom = getActivity().findViewById(R.id.fandom);
         cardQuizToBid = getActivity().findViewById(R.id.quiztobid);
@@ -72,7 +72,7 @@ public class NonTechEvents extends Fragment {
 //        ifandom.startAnimation(animation);
 //        iquiz2bid.startAnimation(animation);
 //        iphotoshop.startAnimation(animation);
-        idextrous.setOnClickListener(new View.OnClickListener() {
+        cardDextrous.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 String contact;

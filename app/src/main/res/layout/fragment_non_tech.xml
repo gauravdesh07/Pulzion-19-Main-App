@@ -78,7 +78,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:layout_weight="2"
-                        android:text="Just Coding"
+                        android:text="Cerebro"
                         android:textAlignment="center" />
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
