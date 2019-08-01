@@ -384,7 +384,7 @@ public class Receipts extends AppCompatActivity
                                                 //l.setVisibility(View.VISIBLE);
                                                 name1[0] = d1.getString("participant1");
                                                 contact1[0] = d1.getString("id");
-                                                cost1[0] = String.valueOf((int) d1.get("cost") - (int) d1.get("pending"));
+                                                cost1[0] = String.valueOf((long) d1.get("cost") - (long) d1.get("pending"));
                                                 mail1[0] = d1.get("events").toString().replaceAll("_", " ");
 //                                            t1.setText(name1[0]);
 //                                            t2.setText(contact1[0]);

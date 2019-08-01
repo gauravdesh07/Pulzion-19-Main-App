@@ -122,7 +122,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="16dp"
-                    android:text="maddiwartanush@gmail.com"
+                    android:text="gauravdesh26@gmail.com"
                     android:textColor="@color/black"
                     android:textSize="16sp" />
             </LinearLayout>
