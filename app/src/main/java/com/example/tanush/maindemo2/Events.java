@@ -128,6 +128,7 @@ public class Events extends AppCompatActivity
             case R.id.workshops:
                 Intent i1 = new Intent(Events.this, Workshops.class);
                 startActivity(i1);
+                finish();
                 break;
             case R.id.nav_sponsors:
                 Intent g = new Intent(Events.this, Sponsors.class);

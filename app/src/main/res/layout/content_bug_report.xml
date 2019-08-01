@@ -8,7 +8,8 @@
     android:background="@drawable/darktwo"
     tools:context=".BugReport"
     android:orientation="vertical"
-    android:padding="8dp">
+    android:padding="8dp"
+    android:paddingTop="60dp">
 
 
     <TextView

@@ -18,11 +18,7 @@
             android:background="#030622"
             app:theme="@style/ToolBarStyle"
             app:titleTextColor="@color/white"
-
             app:popupTheme="@style/AppTheme.PopupOverlay" />
-
-
-
     </com.google.android.material.appbar.AppBarLayout>
 
 

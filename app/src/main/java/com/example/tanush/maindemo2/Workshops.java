@@ -1,21 +1,34 @@
 package com.example.tanush.maindemo2;
 
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Toast;
 
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.cardview.widget.CardView;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.navigation.NavigationView;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QuerySnapshot;
+
+import java.util.List;
 
 public class Workshops extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
+    FirebaseFirestore db;
+    CardView hack, ai;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,6 +38,7 @@ public class Workshops extends AppCompatActivity
         setSupportActionBar(toolbar);
 
 
+        db = FirebaseFirestore.getInstance();
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         NavigationView navigationView = findViewById(R.id.nav_view);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -33,7 +47,140 @@ public class Workshops extends AppCompatActivity
         toggle.syncState();
         navigationView.setItemIconTintList(null);
         navigationView.setNavigationItemSelectedListener(this);
+
+        hack = findViewById(R.id.cv_hack);
+        ai = findViewById(R.id.cv_ai);
+        hack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                final String contact;
+                //startActivity(new Intent(getActivity(),StartActivity.class));
+                final String[] event_name = new String[1];
+                final String[] event_description = new String[1];
+                final String[] fees = new String[1];
+                final String[] quote = new String[1];
+                final String[] rule_description = new String[1];
+                final String[] team = new String[1];
+                //final String team_distribution;
+
+                db.collection("Workshop_Details").get()
+                        .addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
+                            @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
+                            @Override
+                            public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
+                                if (!queryDocumentSnapshots.isEmpty()) {
+                                    int temp1 = 0;
+                                    List<DocumentSnapshot> list = queryDocumentSnapshots.getDocuments();
+                                    for (DocumentSnapshot d1 : list) {
+                                        if (d1.getId().equals("EthicalHacking")) {
+                                            temp1 = 1;
+                                            event_name[0] = d1.getString("name");
+                                            event_description[0] = d1.getString("event_description");
+                                            fees[0] = d1.getString("fees");
+                                            quote[0] = d1.getString("quote");
+//                                            rule_description[0] = d1.getString("rule_description");
+//                                            team[0]=d1.getString("team_distribution");
+                                            //map= (Map<String, String>) d1.get("contact");
+                                            //contactList=d1.getString(contactname);
+                                            String con1 = d1.getString("contact1");
+                                            String con2 = d1.getString("contact2");
+
+
+                                            WorkshopSnapshot eventDetails = new WorkshopSnapshot(event_name[0], quote[0], event_description[0], fees[0], R.drawable.ev_bugoff, con1, con2);
+                                            Intent intent = new Intent(Workshops.this, WorkshopDetails.class);
+                                            intent.putExtra("WORKSHOP_DETAILS", eventDetails);
+                                            startActivity(intent);
+//                                            ObjectAnimator anim = ObjectAnimator.ofFloat(ibugoff, "ScaleY", 1, 0);
+//                                            anim.setDuration(2000);
+//                                            anim.start();
+
+
+                                            break;
+                                        } else
+                                            temp1 = 0;
+                                    }
+                                    if (temp1 == 0) {
+                                        Toast.makeText(Workshops.this, "Load Failed", Toast.LENGTH_SHORT).show();
+                                    }
+                                }
+
+
+                            }
+                        });
+
+
+            }
+        });
+
+
+        ai.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                final String contact;
+                //startActivity(new Intent(getActivity(),StartActivity.class));
+                final String[] event_name = new String[1];
+                final String[] event_description = new String[1];
+                final String[] fees = new String[1];
+                final String[] quote = new String[1];
+                final String[] rule_description = new String[1];
+                final String[] team = new String[1];
+                //final String team_distribution;
+
+                db.collection("Workshop_Details").get()
+                        .addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
+                            @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
+                            @Override
+                            public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
+                                if (!queryDocumentSnapshots.isEmpty()) {
+                                    int temp1 = 0;
+                                    List<DocumentSnapshot> list = queryDocumentSnapshots.getDocuments();
+                                    for (DocumentSnapshot d1 : list) {
+                                        if (d1.getId().equals("AI")) {
+                                            temp1 = 1;
+                                            event_name[0] = d1.getString("name");
+                                            event_description[0] = d1.getString("event_description");
+                                            fees[0] = d1.getString("fees");
+                                            quote[0] = d1.getString("quote");
+//                                            rule_description[0] = d1.getString("rule_description");
+//                                            team[0]=d1.getString("team_distribution");
+                                            //map= (Map<String, String>) d1.get("contact");
+                                            //contactList=d1.getString(contactname);
+                                            String con1 = d1.getString("contact1");
+                                            String con2 = d1.getString("contact2");
+
+
+                                            WorkshopSnapshot eventDetails = new WorkshopSnapshot(event_name[0], quote[0], event_description[0], fees[0], R.drawable.ev_justcoding, con1, con2);
+                                            Intent intent = new Intent(Workshops.this, WorkshopDetails.class);
+                                            intent.putExtra("WORKSHOP_DETAILS", eventDetails);
+                                            startActivity(intent);
+//                                            ObjectAnimator anim = ObjectAnimator.ofFloat(ibugoff, "ScaleY", 1, 0);
+//                                            anim.setDuration(2000);
+//                                            anim.start();
+
+
+                                            break;
+                                        } else
+                                            temp1 = 0;
+                                    }
+                                    if (temp1 == 0) {
+                                        Toast.makeText(Workshops.this, "Load Failed", Toast.LENGTH_SHORT).show();
+                                    }
+                                }
+
+
+                            }
+                        });
+
+
+            }
+        });
+
+
     }
+
+
 
     @Override
     public void onBackPressed() {

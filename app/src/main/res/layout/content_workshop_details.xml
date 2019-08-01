@@ -59,44 +59,6 @@
             android:textColor="@color/colorWhite"
             android:textSize="16sp" />
 
-        <!--<TextView-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--style="@style/PulzionFont"-->
-        <!--android:text="Rules and Regulations"-->
-        <!--android:textSize="26sp"-->
-        <!--android:layout_marginTop="32dp"-->
-        <!--android:textColor="@color/colorCyan"/>-->
-        <!--<TextView-->
-        <!--android:paddingTop="10sp"-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:text="TextView3"-->
-        <!--android:id="@+id/rules"-->
-        <!--android:textSize="16sp"-->
-        <!--android:layout_marginLeft="16dp"-->
-        <!--android:textColor="@color/colorWhite"/>-->
-
-        <!--<TextView-->
-        <!--style="@style/PulzionFont"-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:textColor="@color/colorCyan"-->
-        <!--android:text="Team Distribution"-->
-        <!--android:layout_marginTop="16dp"-->
-        <!--android:textSize="26sp"-->
-        <!--/>-->
-
-        <!--<TextView-->
-        <!--android:paddingTop="10sp"-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:text="TextView4"-->
-        <!--android:textSize="16sp"-->
-        <!--android:id="@+id/team_distribution"-->
-        <!--android:layout_marginLeft="16dp"-->
-        <!--android:textColor="@color/colorWhite"/>-->
-
         <TextView
             style="@style/PulzionFont"
             android:layout_width="match_parent"
