@@ -8,14 +8,15 @@
     android:fitsSystemWindows="true">
 
     <include
-        layout="@layout/content_receipts"
+        layout="@layout/app_bar_main"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 
     <include
-        layout="@layout/app_bar_main"
+        layout="@layout/content_receipts"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
+
 
 
 
