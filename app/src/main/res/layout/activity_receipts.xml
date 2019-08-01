@@ -5,23 +5,18 @@
     android:id="@+id/drawer_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/darktwo"
     android:fitsSystemWindows="true">
-
-    <include
-        layout="@layout/app_bar_main"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
 
     <include
         layout="@layout/content_receipts"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 
-
-
-
-
-
+    <include
+        layout="@layout/app_bar_main"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
 
 
     <com.google.android.material.navigation.NavigationView

@@ -18,6 +18,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
                 android:background="#030622"
+                style="@style/ToolBarStyle"
+                app:navigationIcon="@drawable/ic_menu_black_24dp"
+
+                app:titleTextColor="@color/white"
                 app:popupTheme="@style/AppTheme.PopupOverlay">
             </androidx.appcompat.widget.Toolbar>
 
@@ -25,10 +29,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/tab_layout"
+                android:theme="@style/AppTheme.NoActionBar"
                 android:minHeight="?attr/actionBarSize"
                 app:tabSelectedTextColor="@color/colorAccent"
                 android:background="#030622"
-                android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+                app:tabTextColor="@color/white"
                 android:layout_below="@id/app_bar"
                 >
 

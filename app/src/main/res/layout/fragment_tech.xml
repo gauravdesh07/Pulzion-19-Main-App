@@ -23,6 +23,7 @@
                 android:id="@+id/bugoff"
                 style="@style/EventCardStyle"
                 app:cardCornerRadius="10dp"
+                app:strokeColor="@color/colorDarkBlue4"
                 app:strokeWidth="3dp">
 
 

@@ -9,7 +9,6 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
@@ -49,12 +48,12 @@ public class MainActivity extends AppCompatActivity
                 .addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
-                        String msg = "Successful";
+
                         if (!task.isSuccessful()) {
-                            msg = "Failed";
+
                         }
 
-                        Toast.makeText(MainActivity.this, msg, Toast.LENGTH_SHORT).show();
+
                     }
                 });
 

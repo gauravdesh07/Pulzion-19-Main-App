@@ -5,7 +5,7 @@
     android:paddingRight="10dp"
     android:paddingLeft="10dp"
     android:layout_height="match_parent"
-    android:background="@color/colorBackground"
+    android:background="@drawable/darktwo"
     tools:context=".Sponsors">
 
     <ImageView
