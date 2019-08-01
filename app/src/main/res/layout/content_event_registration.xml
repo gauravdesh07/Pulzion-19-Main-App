@@ -757,7 +757,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:backgroundTint="#012638"
+                android:backgroundTint="@color/colorDarkBlue1"
                 android:text="PAY NOW"
                 android:textColor="@color/colorWhite"
                 app:cornerRadius="30sp" />

@@ -47,7 +47,7 @@
       "client_info": {
         "mobilesdk_app_id": "1:100193450230:android:ba058e43deae7d12",
         "android_client_info": {
-          "package_name": "com.example.tanush.maindemo"
+          "package_name": "com.pasc.pulzion19"
         }
       },
       "oauth_client": [
@@ -55,7 +55,7 @@
           "client_id": "100193450230-e6nq0osbsajuid0imobsp0c7d1tg1im2.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "com.example.tanush.maindemo",
+            "package_name": "com.pasc.pulzion19",
             "certificate_hash": "4daa5959a9514462a45a63d0e7bc6227750eff3d"
           }
         },
@@ -84,7 +84,7 @@
       "client_info": {
         "mobilesdk_app_id": "1:100193450230:android:648849d8289d9352",
         "android_client_info": {
-          "package_name": "com.example.tanush.maindemo2"
+          "package_name": "com.pasc.pulzion19"
         }
       },
       "oauth_client": [
@@ -92,7 +92,7 @@
           "client_id": "100193450230-37r96j743udr2lbipnj7bitpnj1g5tvr.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "com.example.tanush.maindemo2",
+            "package_name": "com.pasc.pulzion19",
             "certificate_hash": "757b94a356559cfee6ea5e49c200c9faac6a2f3a"
           }
         },
@@ -100,7 +100,7 @@
           "client_id": "100193450230-7cqodi2uu76120qf06do5k78jrpac51m.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "com.example.tanush.maindemo2",
+            "package_name": "com.pasc.pulzion19",
             "certificate_hash": "4daa5959a9514462a45a63d0e7bc6227750eff3d"
           }
         },
@@ -129,7 +129,7 @@
       "client_info": {
         "mobilesdk_app_id": "1:100193450230:android:0c78af5f2b8983ba",
         "android_client_info": {
-          "package_name": "com.example.tanush.navbar"
+          "package_name": "com.pasc.pulzion19.navbar"
         }
       },
       "oauth_client": [
@@ -137,7 +137,7 @@
           "client_id": "100193450230-8gp3u1p7po90qfaun1cmd1r27mf1dtbn.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "com.example.tanush.navbar",
+            "package_name": "com.pasc.pulzion19.navbar",
             "certificate_hash": "4daa5959a9514462a45a63d0e7bc6227750eff3d"
           }
         },
@@ -166,7 +166,7 @@
       "client_info": {
         "mobilesdk_app_id": "1:100193450230:android:6f4c55b8147f45c7",
         "android_client_info": {
-          "package_name": "com.example.tanush.registrationmodule"
+          "package_name": "com.pasc.pulzion19.registrationmodule"
         }
       },
       "oauth_client": [
@@ -174,7 +174,7 @@
           "client_id": "100193450230-r2r0m9i6bu9rn5c4sobqep7fi6a0v9gd.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "com.example.tanush.registrationmodule",
+            "package_name": "com.pasc.pulzion19.registrationmodule",
             "certificate_hash": "4daa5959a9514462a45a63d0e7bc6227750eff3d"
           }
         },
@@ -203,7 +203,7 @@
       "client_info": {
         "mobilesdk_app_id": "1:100193450230:android:a693b1e6b0c74220",
         "android_client_info": {
-          "package_name": "com.example.tanush.tabdemo"
+          "package_name": "com.pasc.pulzion19.tabdemo"
         }
       },
       "oauth_client": [
@@ -211,7 +211,7 @@
           "client_id": "100193450230-1n1ic6aglgj3iom38vrnlb7p57n8rqk8.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "com.example.tanush.tabdemo",
+            "package_name": "com.pasc.pulzion19.tabdemo",
             "certificate_hash": "4daa5959a9514462a45a63d0e7bc6227750eff3d"
           }
         },

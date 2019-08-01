@@ -36,7 +36,7 @@
                         android:layout_width="60dp"
                         android:layout_height="100dp"
                         android:layout_weight="1"
-                        android:src="@drawable/ev_bugoff" />
+                        android:src="@drawable/hacking" />
 
                     <TextView
                         android:id="@+id/texthack1"
@@ -79,7 +79,7 @@
                         android:layout_width="60dp"
                         android:layout_height="100dp"
                         android:layout_weight="1"
-                        android:src="@drawable/ev_justcoding" />
+                        android:src="@drawable/ai" />
 
                     <TextView
                         android:id="@+id/textai"

@@ -7,7 +7,7 @@
     android:fitsSystemWindows="true">
 
     <include
-        layout="@layout/content_event_details"
+        layout="@layout/content_workshop_details"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 
