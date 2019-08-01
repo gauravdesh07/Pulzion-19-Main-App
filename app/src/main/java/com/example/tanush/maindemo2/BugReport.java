@@ -18,7 +18,7 @@ import com.google.android.material.navigation.NavigationView;
 
 public class BugReport extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener{
-    CardView dev1, dev2;
+    CardView dev1, dev2, dev3;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,6 +40,7 @@ public class BugReport extends AppCompatActivity
 
         dev1 = (CardView) findViewById(R.id.dev1);
         dev2 = (CardView) findViewById(R.id.dev2);
+        dev3 = (CardView) findViewById(R.id.dev3);
 
         dev1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -54,6 +55,14 @@ public class BugReport extends AppCompatActivity
             public void onClick(View view) {
                 Intent intent = new Intent(Intent.ACTION_DIAL);
                 intent.setData(Uri.parse("tel:" + "7507457622"));
+                startActivity(intent);
+            }
+        });
+        dev3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(Intent.ACTION_DIAL);
+                intent.setData(Uri.parse("tel:" + "7066510224"));
                 startActivity(intent);
             }
         });
