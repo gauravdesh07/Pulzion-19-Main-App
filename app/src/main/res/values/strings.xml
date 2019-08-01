@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">MainDemo2</string>
+    <string name="app_name">Pulzion\'19</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="nav_header_title">Android Studio</string>
@@ -57,6 +57,7 @@
 
     <string name="dev_contact1">+91 7015032436</string>
     <string name="dev_contact2">+91 7507457622</string>
+    <string name="dev_contact3">+91 7066510224</string>
     <string name="donotreply"><b>This is a system generated email, hence, please do not reply to this mail.</b></string>
     <string name="am">Amount: Rs. </string>
     <string name="title_activity_workshop_registration">WorkshopRegistrationActivity</string>

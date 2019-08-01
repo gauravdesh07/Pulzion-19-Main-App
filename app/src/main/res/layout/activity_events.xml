@@ -26,13 +26,10 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/tab_layout"
                 android:minHeight="?attr/actionBarSize"
-                app:tabBackground="@color/colorAccent"
-                app:tabIndicatorFullWidth="true"
-                app:tabSelectedTextColor="@color/white"
-                app:tabTextAppearance="@style/LabelText"
+                app:tabSelectedTextColor="@color/colorAccent"
+                android:background="#030622"
                 android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
                 android:layout_below="@id/app_bar"
-                app:tabTextColor="@color/colorDarkBlue3"
                 >
 
             </com.google.android.material.tabs.TabLayout>
