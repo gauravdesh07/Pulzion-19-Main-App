@@ -21,12 +21,8 @@
 
             <com.google.android.material.card.MaterialCardView
                 android:id="@+id/bugoff"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="8dp"
-                android:elevation="8dp"
+                style="@style/EventCardStyle"
                 app:cardCornerRadius="10dp"
-                app:strokeColor="@color/colorDarkBlue1"
                 app:strokeWidth="3dp">
 
 
@@ -57,12 +53,9 @@
 
             <com.google.android.material.card.MaterialCardView
                 android:id="@+id/just_coding"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="8dp"
-                android:elevation="8dp"
+                style="@style/EventCardStyle"
                 app:cardCornerRadius="10dp"
-                app:strokeColor="@color/colorDarkBlue1"
+                app:strokeColor="@color/colorDarkBlue4"
                 app:strokeWidth="3dp">
 
 
@@ -93,12 +86,9 @@
 
             <com.google.android.material.card.MaterialCardView
                 android:id="@+id/recode_it"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="8dp"
-                android:elevation="8dp"
+                style="@style/EventCardStyle"
                 app:cardCornerRadius="10dp"
-                app:strokeColor="@color/colorDarkBlue1"
+                app:strokeColor="@color/colorDarkBlue4"
                 app:strokeWidth="3dp">
 
 
@@ -129,12 +119,9 @@
 
             <com.google.android.material.card.MaterialCardView
                 android:id="@+id/codeBuddy"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="8dp"
-                android:elevation="8dp"
+                style="@style/EventCardStyle"
                 app:cardCornerRadius="10dp"
-                app:strokeColor="@color/colorDarkBlue1"
+                app:strokeColor="@color/colorDarkBlue4"
                 app:strokeWidth="3dp">
 
 
@@ -166,12 +153,9 @@
 
             <com.google.android.material.card.MaterialCardView
                 android:id="@+id/webandappdev"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="8dp"
-                android:elevation="8dp"
+                style="@style/EventCardStyle"
                 app:cardCornerRadius="10dp"
-                app:strokeColor="@color/colorDarkBlue1"
+                app:strokeColor="@color/colorDarkBlue4"
                 app:strokeWidth="3dp">
 
 
@@ -186,6 +170,8 @@
                         android:layout_width="60dp"
                         android:layout_height="100dp"
                         android:layout_weight="1"
+                        android:scaleX="1.5"
+                        android:scaleY="1.5"
                         android:src="@drawable/ev_webandroid" />
 
                     <TextView
@@ -202,12 +188,9 @@
 
             <com.google.android.material.card.MaterialCardView
                 android:id="@+id/dataquest"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="8dp"
-                android:elevation="8dp"
+                style="@style/EventCardStyle"
                 app:cardCornerRadius="10dp"
-                app:strokeColor="@color/colorDarkBlue1"
+                app:strokeColor="@color/colorDarkBlue4"
                 app:strokeWidth="3dp">
 
 
@@ -222,6 +205,8 @@
                         android:layout_width="60dp"
                         android:layout_height="100dp"
                         android:layout_weight="1"
+                        android:scaleX="1.5"
+                        android:scaleY="1.5"
                         android:src="@drawable/ev_dataquest" />
 
                     <TextView
@@ -238,12 +223,9 @@
 
             <com.google.android.material.card.MaterialCardView
                 android:id="@+id/electroquest"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="8dp"
-                android:elevation="8dp"
+                style="@style/EventCardStyle"
                 app:cardCornerRadius="10dp"
-                app:strokeColor="@color/colorDarkBlue1"
+                app:strokeColor="@color/colorDarkBlue4"
                 app:strokeWidth="3dp">
 
 
