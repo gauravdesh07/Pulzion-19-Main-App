@@ -4,212 +4,180 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorBackground"
+    android:background="@drawable/darktwo"
     tools:context=".BugReport"
-    android:orientation="vertical">
-
-
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"/>
+    android:orientation="vertical"
+    android:padding="8dp">
 
 
     <TextView
-        android:layout_width="wrap_content"
+        android:id="@+id/textView14"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="DEVELOPERS"
-        android:layout_gravity="center"
-        android:textStyle="bold"
+        style="@style/CardFont"
+        android:layout_margin="32dp"
+        android:text="Developers"
+        android:textAlignment="center"
         android:textColor="@color/white"
-        android:textSize="25sp" />
+        android:textSize="30sp" />
 
-    <androidx.cardview.widget.CardView
-        android:id="@+id/dev1"
-        android:clickable="true"
-        android:layout_margin="20sp"
+    <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:backgroundTint="#012638"
-        android:layout_gravity="center"
-
-        app:cardCornerRadius="15sp">
+        style="@style/EventCardStyle"
+        android:backgroundTint="@color/white"
+        app:cardCornerRadius="15dp"
+        app:strokeColor="@color/black"
+        app:strokeWidth="3dp">
 
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:padding="8dp">
 
             <ImageView
-                android:layout_width="100sp"
-                android:layout_height="100sp"
-                android:layout_gravity="center"
-                android:layout_margin="20sp"
-
-                android:src="@drawable/tanush" />
+                android:id="@+id/imageView1"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_weight="1"
+                app:srcCompat="@drawable/tanush" />
 
             <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="8dp"
+                android:layout_weight="10"
                 android:orientation="vertical">
 
-                <LinearLayout
+                <TextView
+                    android:id="@+id/textView15"
                     android:layout_width="match_parent"
-                    android:layout_height="0sp"
-                    android:layout_weight="1">
+                    style="@style/PulzionFont"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="8dp"
+                    android:text="Tanush Maddiwar"
+                    android:textColor="@color/black"
+                    android:textSize="23sp"
+                    android:textStyle="bold" />
 
-                </LinearLayout>
-
-                <LinearLayout
+                <TextView
+                    android:id="@+id/textView16"
                     android:layout_width="match_parent"
-                    android:layout_height="0sp"
-                    android:layout_weight="2">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:layout_weight="1"
-                        android:gravity="center"
-                        android:text="Tanush Maddiwar"
-                        android:textColor="@color/white"
-                        android:textSize="20sp" />
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="0sp"
-                    android:layout_weight="2">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:layout_weight="1"
-                        android:gravity="center"
-                        android:text="@string/dev_contact1"
-                        android:textColor="@color/colorDarkBlue4"
-                        android:textSize="18sp" />
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="0sp"
-                    android:layout_weight="1">
-
-                </LinearLayout>
-
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="0sp"
-                android:layout_height="match_parent">
-
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="16dp"
+                    android:text="maddiwartanush@gmail.com"
+                    android:textColor="@color/black"
+                    android:textSize="16sp" />
             </LinearLayout>
         </LinearLayout>
-    </androidx.cardview.widget.CardView>
+    </com.google.android.material.card.MaterialCardView>
 
-
-
-    <androidx.cardview.widget.CardView
-        android:id="@+id/dev2"
-        android:clickable="true"
-        android:layout_margin="20sp"
+    <com.google.android.material.card.MaterialCardView
+        style="@style/EventCardStyle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:backgroundTint="#012638"
-        android:layout_gravity="center"
-        app:cardCornerRadius="15sp">
+        android:backgroundTint="@color/white"
+        app:cardCornerRadius="15dp"
+        app:strokeColor="@color/black"
+        app:strokeWidth="3dp">
 
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:padding="8dp">
 
             <ImageView
-                android:layout_width="100sp"
-                android:layout_height="100sp"
-                android:layout_gravity="center"
-                android:layout_margin="20sp"
-
-                android:src="@drawable/gaurav" />
+                android:id="@+id/imageView3"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_weight="1"
+                app:srcCompat="@drawable/gaurav" />
 
             <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="8dp"
+                android:layout_weight="10"
                 android:orientation="vertical">
 
-                <LinearLayout
+                <TextView
+                    android:id="@+id/textView19"
+                    style="@style/PulzionFont"
                     android:layout_width="match_parent"
-                    android:layout_height="0sp"
-                    android:layout_weight="1">
+                    android:layout_height="wrap_content"
+                    android:layout_margin="8dp"
+                    android:text="Gaurav Deshpande"
+                    android:textColor="@color/black"
+                    android:textSize="23sp"
+                    android:textStyle="bold" />
 
-                </LinearLayout>
-
-                <LinearLayout
+                <TextView
+                    android:id="@+id/textView20"
                     android:layout_width="match_parent"
-                    android:layout_height="0sp"
-                    android:layout_weight="2">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:layout_weight="1"
-                        android:gravity="center"
-                        android:text="Gaurav Deshpande"
-                        android:textColor="@color/white"
-                        android:textSize="20sp" />
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="0sp"
-                    android:layout_weight="2">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:layout_weight="1"
-                        android:gravity="center"
-                        android:text="@string/dev_contact2"
-                        android:textColor="@color/colorDarkBlue4"
-                        android:textSize="18sp" />
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="0sp"
-                    android:layout_weight="1">
-
-                </LinearLayout>
-
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="0sp"
-                android:layout_height="match_parent">
-
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="16dp"
+                    android:text="maddiwartanush@gmail.com"
+                    android:textColor="@color/black"
+                    android:textSize="16sp" />
             </LinearLayout>
         </LinearLayout>
-    </androidx.cardview.widget.CardView>
+    </com.google.android.material.card.MaterialCardView>
 
-    <LinearLayout
+    <com.google.android.material.card.MaterialCardView
+        style="@style/EventCardStyle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="2"/>
+        android:backgroundTint="@color/white"
+        app:cardCornerRadius="15dp"
+        app:strokeColor="@color/black"
+        app:strokeWidth="3dp">
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="8dp">
 
+            <ImageView
+                android:id="@+id/imageView2"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_weight="1"
+                app:srcCompat="@drawable/pratik" />
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="8dp"
+                android:layout_weight="10"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/textView21"
+                    style="@style/PulzionFont"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="8dp"
+                    android:text="Pratik Patil"
+                    android:textColor="@color/black"
+                    android:textSize="23sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/textView22"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="16dp"
+                    android:text="patilgpratik@gmail.com"
+                    android:textColor="@color/black"
+                    android:textSize="16sp" />
+            </LinearLayout>
+        </LinearLayout>
+    </com.google.android.material.card.MaterialCardView>
 
 </LinearLayout>
