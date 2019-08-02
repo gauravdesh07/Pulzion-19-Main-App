@@ -10,10 +10,10 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import com.bumptech.glide.Glide;
@@ -191,8 +191,51 @@ public class WorkshopDetails extends AppCompatActivity implements Serializable, 
 
     }
 
+    @SuppressWarnings("StatementWithEmptyBody")
     @Override
-    public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
-        return false;
+    public boolean onNavigationItemSelected(MenuItem item) {
+        // Handle navigation view item clicks here.
+        int id = item.getItemId();
+        switch (id) {
+            case R.id.Home:
+                Intent i = new Intent(WorkshopDetails.this, MainActivity.class);
+                startActivity(i);
+                break;
+            case R.id.nav_register:
+                Intent h2 = new Intent(WorkshopDetails.this, EventRegistrationActivity.class);
+                startActivity(h2);
+                break;
+            case R.id.nav_receipts:
+                Intent h = new Intent(WorkshopDetails.this, Receipts.class);
+                startActivity(h);
+                break;
+            case R.id.nav_events:
+                Intent h1 = new Intent(WorkshopDetails.this, Events.class);
+                startActivity(h1);
+                break;
+            case R.id.workshops:
+                Intent i1 = new Intent(WorkshopDetails.this, Workshops.class);
+                startActivity(i1);
+                break;
+            case R.id.nav_sponsors:
+                Intent g = new Intent(WorkshopDetails.this, Sponsors.class);
+                startActivity(g);
+                break;
+            case R.id.nav_aboutus:
+                Intent s = new Intent(WorkshopDetails.this, AboutUs.class);
+                startActivity(s);
+                break;
+        }
+
+
+        DrawerLayout drawer = findViewById(R.id.drawer_layout);
+        drawer.closeDrawer(GravityCompat.START);
+        return true;
+    }
+
+    @Override
+    public void onBackPressed() {
+        Intent intent1 = new Intent(WorkshopDetails.this, Workshops.class);
+        startActivity(intent1);
     }
 }

@@ -779,8 +779,11 @@ public class EventRegistrationActivity extends AppCompatActivity
         return true;
     }
 
-    boolean doubleBackToExitPressedOnce = false;
-
+    @Override
+    public void onBackPressed() {
+        Intent intent1 = new Intent(EventRegistrationActivity.this, MainActivity.class);
+        startActivity(intent1);
+    }
 
 
     protected static String getSaltString() {

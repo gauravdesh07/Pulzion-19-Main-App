@@ -5,10 +5,12 @@ import android.app.NotificationManager;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
@@ -101,14 +103,27 @@ public class MainActivity extends AppCompatActivity
         });
     }
 
+    boolean doubleBackToExitPressedOnce = false;
+
     @Override
     public void onBackPressed() {
-        DrawerLayout drawer = findViewById(R.id.drawer_layout);
-        if (drawer.isDrawerOpen(GravityCompat.START)) {
-            drawer.closeDrawer(GravityCompat.START);
-        } else {
-            super.onBackPressed();
+        if (doubleBackToExitPressedOnce) {
+            Intent b = new Intent(Intent.ACTION_MAIN);
+            b.addCategory(Intent.CATEGORY_HOME);
+            b.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            startActivity(b);
         }
+
+        this.doubleBackToExitPressedOnce = true;
+        Toast.makeText(this, "Press again to EXIT", Toast.LENGTH_SHORT).show();
+
+        new Handler().postDelayed(new Runnable() {
+
+            @Override
+            public void run() {
+                doubleBackToExitPressedOnce = false;
+            }
+        }, 2000);
     }
 
     @Override

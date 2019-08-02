@@ -180,15 +180,11 @@ public class Sponsors extends AppCompatActivity
 //     //END OF KUNAL'sCODE
    }
 //
-    @Override
-    public void onBackPressed() {
-        DrawerLayout drawer = findViewById(R.id.drawer_layout);
-        if (drawer.isDrawerOpen(GravityCompat.START)) {
-            drawer.closeDrawer(GravityCompat.START);
-        } else {
-            super.onBackPressed();
-        }
-    }
+@Override
+public void onBackPressed() {
+    Intent intent1 = new Intent(Sponsors.this, MainActivity.class);
+    startActivity(intent1);
+}
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

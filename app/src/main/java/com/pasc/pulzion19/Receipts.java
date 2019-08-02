@@ -467,12 +467,8 @@ public class Receipts extends AppCompatActivity
 
     @Override
     public void onBackPressed() {
-        DrawerLayout drawer = findViewById(R.id.drawer_layout);
-        if (drawer.isDrawerOpen(GravityCompat.START)) {
-            drawer.closeDrawer(GravityCompat.START);
-        } else {
-            super.onBackPressed();
-        }
+        Intent intent1 = new Intent(Receipts.this, MainActivity.class);
+        startActivity(intent1);
     }
 
     @Override

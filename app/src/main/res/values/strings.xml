@@ -61,10 +61,13 @@
     <string name="donotreply"><b>This is a system generated email, hence, please do not reply to this mail.</b></string>
     <string name="am">Amount: Rs. </string>
     <string name="title_activity_workshop_registration">WorkshopRegistrationActivity</string>
-    <string name="register1">REGISTER</string>
-    <string name="workshop">Workshops</string>
+    <string name="register1">REGISTRATION FORM</string>
+    <string name="workshop"><u><b>Workshops</b></u></string>
 
     <string name="events">Events:</string>
+    <string name="devmail1"><u>maddiwartanush@gmail.com</u></string>
+    <string name="devmail2"><u>gauravdesh26@gmail.com</u></string>
+    <string name="devmail3"><u>patilgpratik@gmail.com</u></string>
 
 
 </resources>

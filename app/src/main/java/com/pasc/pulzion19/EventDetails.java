@@ -211,6 +211,12 @@ EventDetails extends AppCompatActivity implements Serializable, NavigationView.O
     }
 
     @Override
+    public void onBackPressed() {
+        Intent intent1 = new Intent(EventDetails.this, Events.class);
+        startActivity(intent1);
+    }
+
+    @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
 

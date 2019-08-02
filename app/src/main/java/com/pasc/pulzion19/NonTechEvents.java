@@ -397,4 +397,6 @@ public class NonTechEvents extends Fragment {
     public Animation onCreateAnimation(int transit, boolean enter, int nextAnim) {
         return super.onCreateAnimation(R.anim.slidingleft, enter, R.anim.slidingright);
     }
+
+
 }

@@ -158,14 +158,8 @@ public class AboutUs extends AppCompatActivity
 
     @Override
     public void onBackPressed() {
-        DrawerLayout drawer = findViewById(R.id.drawer_layout);
-        if (drawer.isDrawerOpen(GravityCompat.START)) {
-            drawer.closeDrawer(GravityCompat.START);
-            Intent intent1 = new Intent(AboutUs.this, BugReport.class);
-            startActivity(intent1);
-        } else {
-            super.onBackPressed();
-        }
+        Intent intent = new Intent(getBaseContext(), MainActivity.class);
+        startActivity(intent);
     }
 
     @Override
