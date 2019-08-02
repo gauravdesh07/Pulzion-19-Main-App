@@ -2,16 +2,16 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_marginBottom="30dp">
+    android:layout_marginBottom="20dp">
 
 
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    <LinearLayout
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:layout_marginTop="80dp"
-        android:nestedScrollingEnabled="true"
+        android:layout_marginBottom="20dp"
         tools:context=".EventRegistrationActivity">
 
 
@@ -66,7 +66,9 @@
                 app:boxCornerRadiusBottomEnd="4dp"
                 app:boxCornerRadiusBottomStart="4dp"
                 app:boxCornerRadiusTopEnd="4dp"
-                app:boxCornerRadiusTopStart="4dp"></com.google.android.material.textfield.TextInputEditText>
+                app:boxCornerRadiusTopStart="4dp">
+
+            </com.google.android.material.textfield.TextInputEditText>
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
@@ -93,7 +95,9 @@
                 app:boxCornerRadiusBottomEnd="4dp"
                 app:boxCornerRadiusBottomStart="4dp"
                 app:boxCornerRadiusTopEnd="4dp"
-                app:boxCornerRadiusTopStart="4dp"></com.google.android.material.textfield.TextInputEditText>
+                app:boxCornerRadiusTopStart="4dp">
+
+            </com.google.android.material.textfield.TextInputEditText>
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
@@ -117,7 +121,9 @@
                 android:inputType="textEmailAddress"
 
                 android:textColor="#FFFFFF"
-                android:textColorHint="#FFFFFF"></com.google.android.material.textfield.TextInputEditText>
+                android:textColorHint="#FFFFFF">
+
+            </com.google.android.material.textfield.TextInputEditText>
         </com.google.android.material.textfield.TextInputLayout>
 
 
@@ -147,7 +153,9 @@
                 app:boxCornerRadiusBottomEnd="4dp"
                 app:boxCornerRadiusBottomStart="4dp"
                 app:boxCornerRadiusTopEnd="4dp"
-                app:boxCornerRadiusTopStart="4dp"></com.google.android.material.textfield.TextInputEditText>
+                app:boxCornerRadiusTopStart="4dp">
+
+            </com.google.android.material.textfield.TextInputEditText>
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
@@ -173,7 +181,9 @@
                 app:boxCornerRadiusBottomEnd="4dp"
                 app:boxCornerRadiusBottomStart="4dp"
                 app:boxCornerRadiusTopEnd="4dp"
-                app:boxCornerRadiusTopStart="4dp"></com.google.android.material.textfield.TextInputEditText>
+                app:boxCornerRadiusTopStart="4dp">
+
+            </com.google.android.material.textfield.TextInputEditText>
         </com.google.android.material.textfield.TextInputLayout>
 
 
@@ -721,13 +731,12 @@
 
         <LinearLayout
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="80dp"
             android:layout_gravity="center"
-            android:layout_marginTop="25sp"
             android:orientation="horizontal">
 
             <TextView
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="50dp"
                 android:text="Amount: Rs."
                 android:textColor="#FFFFFF"
@@ -743,32 +752,44 @@
         </LinearLayout>
 
         <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_height="80dp"
             android:layout_gravity="center"
-            android:layout_margin="10dp"
-            android:layout_marginTop="25dp"
+            android:layout_marginBottom="50dp"
             android:orientation="horizontal">
-
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="2" />
-
             <Button
-                android:id="@+id/paytmButton"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:backgroundTint="@color/colorDarkBlue1"
+                android:layout_gravity="center"
+                android:id="@+id/paytmButton"
                 android:text="PAY NOW"
-                android:textColor="@color/colorWhite"
+                android:layout_marginBottom="20dp"
+                android:background="@color/white"
+                android:textSize="20sp"
                 app:cornerRadius="30sp" />
 
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="2" />
         </LinearLayout>
+        <!--<Button-->
+        <!--android:id="@+id/paytmButton"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:backgroundTint="@color/colorDarkBlue1"-->
+        <!--android:text="PAY NOW"-->
+        <!--android:layout_marginBottom="20dp"-->
+        <!--android:textSize="20sp"-->
+        <!--android:textColor="@color/colorWhite"-->
+        <!--app:cornerRadius="30sp" />-->
+
+        <!--<Button-->
+        <!--android:id="@+id/paytmButton"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:text="PAY NOW"-->
+        <!--android:nestedScrollingEnabled="true"-->
+        <!--android:layout_gravity="center"-->
+        <!--android:gravity="center"-->
+        <!--android:textSize="20sp"-->
+        <!--android:textColor="@color/colorWhite"/>-->
+
     </LinearLayout>
 </ScrollView>
