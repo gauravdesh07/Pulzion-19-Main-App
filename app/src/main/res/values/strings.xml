@@ -68,6 +68,8 @@
     <string name="devmail1"><u>maddiwartanush@gmail.com</u></string>
     <string name="devmail2"><u>gauravdesh26@gmail.com</u></string>
     <string name="devmail3"><u>patilgpratik@gmail.com</u></string>
+    <string name="th"><sup><small>th</small></sup></string>
+    <string name="rd"><sup><small>rd</small></sup></string>
 
 
 </resources>
