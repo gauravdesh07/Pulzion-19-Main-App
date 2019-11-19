@@ -1,5 +1,5 @@
 # PULZION'19
-Android App to publicize all the events and workshops of Pulzion'19 with integration of Payment Gateways.(PICT ACM Student Chapter (PASC)).
+Android App to publicize all the events and workshops of Pulzion'19(PICT ACM Student Chapter (PASC)) with integration of Paytm Payment Gateway.
 
 Tech Stack :
   Android Studio IDE, Java, XML, Firebase CLoud Firestore.
