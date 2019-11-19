@@ -2,7 +2,7 @@
 Android App to publicize all the events and workshops of Pulzion'19 with integration of Payment Gateways.(PICT ACM Student Chapter (PASC)).
 
 Tech Stack :
-  Android Studio IDE, Java, XML, Firebase CLoud Firestore, Shared Prefernces, Cloud Messaging, Paytm Payment Gateway.
+  Android Studio IDE, Java, XML, Firebase CLoud Firestore.
   
 Pulzion'19:
   Pulzion'19 is the annual head event of PASC. It consists of Technical as well as various Non-Technical Events, mentioned in the app.
