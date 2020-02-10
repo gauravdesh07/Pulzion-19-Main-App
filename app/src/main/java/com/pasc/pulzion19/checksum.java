@@ -33,7 +33,7 @@ public class checksum extends AppCompatActivity implements PaytmPaymentTransacti
         orderId = intent.getExtras().getString("orderid");
         custid = intent.getExtras().getString("custid");
         temp = intent.getIntExtra("final_amount", 0);
-        mid = "axESEi44386194598879"; /// your merchant id
+        mid = "/*Enter mid here*/"; /// your merchant id
         sendUserDetailTOServerdd dl = new sendUserDetailTOServerdd();
         dl.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
 // vollye , retrofit, asynch
@@ -41,11 +41,9 @@ public class checksum extends AppCompatActivity implements PaytmPaymentTransacti
     public class sendUserDetailTOServerdd extends AsyncTask<ArrayList<String>, Void, String> {
         private ProgressDialog dialog = new ProgressDialog(checksum.this);
         //private String orderId , mid, custid, amt;
-        String url = "https://pascpayment.000webhostapp.com/generateChecksum.php";
-        String verifyurl = "https://securegw.paytm.in/theia/paytmCallback?ORDER_ID=" + orderId;
+        String url = "/*URL of generateChecksum.php file hosted*/";
+        String verifyurl = "/*Refer to paytm*/" + orderId;
 
-        //String varifyurl = "https://pascpayment.000webhostapp.com/verifyChecksum.php";
-        // "https://pguat.paytm.com/paytmchecksum/paytmCallback.jsp";
         String CHECKSUMHASH ="";
         @Override
         protected void onPreExecute() {
